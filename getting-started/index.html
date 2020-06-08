@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Get Started &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration Basics" href="config-basics.html" />
+    <link rel="prev" title="Install JupyterHub and JupyterLab from the ground up" href="../installation-guide-hard.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="config-basics.html">Configuration Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="networking-basics.html">Networking basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security-basics.html">Security settings</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators-users-basics.html">Authentication and User Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners-basics.html">Spawners and single-user notebook servers</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services-basics.html">External services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="faq.html">Frequently asked questions</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="institutional-faq.html">Institutional FAQ</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="get-started">
+<h1>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
+<p>This section covers how to configure and customize JupyterHub for your
+needs. It contains information about authentication, networking, security, and
+other topics that are relevant to individuals or organizations deploying their
+own JupyterHub.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="config-basics.html">Configuration Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config-basics.html#generate-a-default-config-file">Generate a default config file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-basics.html#start-with-a-specific-config-file">Start with a specific config file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-basics.html#configure-using-command-line-options">Configure using command line options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-basics.html#configure-for-various-deployment-environments">Configure for various deployment environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-basics.html#run-the-proxy-separately">Run the proxy separately</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="networking-basics.html">Networking basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="networking-basics.html#set-the-proxy-s-ip-address-and-port">Set the Proxy’s IP address and port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking-basics.html#set-the-proxy-s-rest-api-communication-url-optional">Set the Proxy’s REST API communication URL (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking-basics.html#configure-the-hub-if-the-proxy-or-spawners-are-remote-or-isolated">Configure the Hub if the Proxy or Spawners are remote or isolated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking-basics.html#adjusting-the-hub-s-url">Adjusting the hub’s URL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security-basics.html">Security settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security-basics.html#enabling-ssl-encryption">Enabling SSL encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-basics.html#proxy-authentication-token">Proxy authentication token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-basics.html#cookie-secret">Cookie secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-basics.html#cookies-used-by-jupyterhub-authentication">Cookies used by JupyterHub authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authenticators-users-basics.html">Authentication and User Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authenticators-users-basics.html#create-a-whitelist-of-users">Create a whitelist of users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators-users-basics.html#configure-admins-admin-users">Configure admins (<code class="docutils literal notranslate"><span class="pre">admin_users</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators-users-basics.html#give-admin-access-to-other-users-notebook-servers-admin-access">Give admin access to other users’ notebook servers (<code class="docutils literal notranslate"><span class="pre">admin_access</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators-users-basics.html#add-or-remove-users-from-the-hub">Add or remove users from the Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators-users-basics.html#use-localauthenticator-to-create-system-users">Use LocalAuthenticator to create system users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators-users-basics.html#use-oauthenticator-to-support-oauth-with-popular-service-providers">Use OAuthenticator to support OAuth with popular service providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators-users-basics.html#use-dummyauthenticator-for-testing">Use DummyAuthenticator for testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spawners-basics.html">Spawners and single-user notebook servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services-basics.html">External services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services-basics.html#real-world-example-to-cull-idle-servers">Real-world example to cull idle servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services-basics.html#api-token-basics">API Token basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services-basics.html#authenticating-to-single-user-servers-using-api-token">Authenticating to single-user servers using API token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services-basics.html#configure-cull-idle-to-run-as-a-hub-managed-service">Configure <code class="docutils literal notranslate"><span class="pre">cull-idle</span></code> to run as a Hub-Managed Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services-basics.html#run-cull-idle-manually-as-a-standalone-script">Run <code class="docutils literal notranslate"><span class="pre">cull-idle</span></code> manually as a standalone script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-share-links-to-notebooks">How do I share links to notebooks?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="institutional-faq.html">Institutional FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="institutional-faq.html#for-all">For all</a></li>
+<li class="toctree-l2"><a class="reference internal" href="institutional-faq.html#for-management">For management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="institutional-faq.html#for-it">For IT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="institutional-faq.html#for-technical-leads">For Technical Leads</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../installation-guide-hard.html" title="previous page">Install JupyterHub and JupyterLab from the ground up</a>
+    <a class='right-next' id="next-link" href="config-basics.html" title="next page">Configuration Basics</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

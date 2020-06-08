@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Frequently asked questions &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Institutional FAQ" href="institutional-faq.html" />
+    <link rel="prev" title="External services" href="services-basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="config-basics.html">Configuration Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="networking-basics.html">Networking basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security-basics.html">Security settings</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators-users-basics.html">Authentication and User Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners-basics.html">Spawners and single-user notebook servers</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services-basics.html">External services</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Frequently asked questions</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="institutional-faq.html">Institutional FAQ</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#how-do-i-share-links-to-notebooks" class="nav-link">How do I share links to notebooks?</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="frequently-asked-questions">
+<h1>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-do-i-share-links-to-notebooks">
+<h2>How do I share links to notebooks?<a class="headerlink" href="#how-do-i-share-links-to-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>In short, where you see <code class="docutils literal notranslate"><span class="pre">/user/name/notebooks/foo.ipynb</span></code> use <code class="docutils literal notranslate"><span class="pre">/hub/user-redirect/notebooks/foo.ipynb</span></code> (replace <code class="docutils literal notranslate"><span class="pre">/user/name</span></code> with <code class="docutils literal notranslate"><span class="pre">/hub/user-redirect</span></code>).</p>
+<p>Sharing links to notebooks is a common activity,
+and can look different based on what you mean.
+Your first instinct might be to copy the URL you see in the browser,
+e.g. <code class="docutils literal notranslate"><span class="pre">hub.jupyter.org/user/yourname/notebooks/coolthing.ipynb</span></code>.
+However, let’s break down what this URL means:</p>
+<p><code class="docutils literal notranslate"><span class="pre">hub.jupyter.org/user/yourname/</span></code> is the URL prefix handled by <em>your server</em>,
+which means that sharing this URL is asking the person you share the link with
+to come to <em>your server</em> and look at the exact same file.
+In most circumstances, this is forbidden by permissions because the person you share with does not have access to your server.
+What actually happens when someone visits this URL will depend on whether your server is running and other factors.</p>
+<p>But what is our actual goal?
+A typical situation is that you have some shared or common filesystem,
+such that the same path corresponds to the same document
+(either the exact same document or another copy of it).
+Typically, what folks want when they do sharing like this
+is for each visitor to open the same file <em>on their own server</em>,
+so Breq would open <code class="docutils literal notranslate"><span class="pre">/user/breq/notebooks/foo.ipynb</span></code> and
+Seivarden would open <code class="docutils literal notranslate"><span class="pre">/user/seivarden/notebooks/foo.ipynb</span></code>, etc.</p>
+<p>JupyterHub has a special URL that does exactly this!
+It’s called <code class="docutils literal notranslate"><span class="pre">/hub/user-redirect/...</span></code> and after the visitor logs in,
+So if you replace <code class="docutils literal notranslate"><span class="pre">/user/yourname</span></code> in your URL bar
+with <code class="docutils literal notranslate"><span class="pre">/hub/user-redirect</span></code> any visitor should get the same
+URL on their own server, rather than visiting yours.</p>
+<p>In JupyterLab 2.0, this should also be the result of the “Copy Shareable Link”
+action in the file browser.</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="services-basics.html" title="previous page">External services</a>
+    <a class='right-next' id="next-link" href="institutional-faq.html" title="next page">Institutional FAQ</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

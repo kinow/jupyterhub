@@ -1,0 +1,252 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Contributing &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Community communication channels" href="community.html" />
+    <link rel="prev" title="Services Authentication" href="../api/services.auth.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="community.html">Community communication channels</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="setup.html">Setting up a development install</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="docs.html">Contributing Documentation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="tests.html">Testing JupyterHub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="roadmap.html">The JupyterHub roadmap</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security.html">Reporting security issues in Jupyter or JupyterHub</a>
+              </li>
+          
+        
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>We want you to contribute to JupyterHub in ways that are most exciting
+&amp; useful to you. We value documentation, testing, bug reporting &amp; code equally,
+and are glad to have your contributions in whatever form you wish :)</p>
+<p>Our <a class="reference external" href="https://github.com/jupyter/governance/blob/master/conduct/code_of_conduct.md">Code of Conduct</a>
+(<a class="reference external" href="https://github.com/jupyter/governance/blob/master/conduct/reporting_online.md">reporting guidelines</a>)
+helps keep our community welcoming to as many people as possible.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community communication channels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setting up a development install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#id2">Setting up a development install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#using-dummyauthenticator-simplelocalprocessspawner">Using DummyAuthenticator &amp; SimpleLocalProcessSpawner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs.html">Contributing Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs.html#building-documentation-locally">Building documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html#documentation-conventions">Documentation conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Testing JupyterHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#running-the-tests">Running the tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html#troubleshooting-test-failures">Troubleshooting Test Failures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">The JupyterHub roadmap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#using-the-roadmap">Using the roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#the-roadmap-proper">The roadmap proper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Reporting security issues in Jupyter or JupyterHub</a></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../api/services.auth.html" title="previous page">Services Authentication</a>
+    <a class='right-next' id="next-link" href="community.html" title="next page">Community communication channels</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

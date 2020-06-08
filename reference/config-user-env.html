@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Configuring user environments &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration examples" href="config-examples.html" />
+    <link rel="prev" title="JupyterHub server events" href="../events/server-actions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="technical-overview.html">Technical Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="urls.html">JupyterHub URL scheme</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="websecurity.html">Security Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators.html">Authenticators</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners.html">Spawners</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services.html">Services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="proxy.html">Writing a custom Proxy implementation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="separate-proxy.html">Running proxy separately from the hub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="rest.html">Using JupyterHub’s REST API</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="database.html">The Hub’s Database</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="templates.html">Working with templates and UI</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="../events/index.html">Eventlogging and Telemetry</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Configuring user environments</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-examples.html">Configuration examples</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-ghoauth.html">Configure GitHub OAuth</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-proxy.html">Using a reverse proxy</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-sudo.html">Run JupyterHub without root privileges using sudo</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-reference.html">Configuration Reference</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#installing-packages" class="nav-link">Installing packages</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#configuring-jupyter-and-ipython" class="nav-link">Configuring Jupyter and IPython</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#example-enable-an-extension-system-wide" class="nav-link">Example: Enable an extension system-wide</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#example-enable-a-jupyter-notebook-configuration-setting-for-all-users" class="nav-link">Example: Enable a Jupyter notebook configuration setting for all users</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#installing-kernelspecs" class="nav-link">Installing kernelspecs</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#example-installing-kernels-system-wide" class="nav-link">Example: Installing kernels system-wide</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#multi-user-hosts-vs-containers" class="nav-link">Multi-user hosts vs. Containers</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#named-servers" class="nav-link">Named servers</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="configuring-user-environments">
+<h1>Configuring user environments<a class="headerlink" href="#configuring-user-environments" title="Permalink to this headline">¶</a></h1>
+<p>Deploying JupyterHub means you are providing Jupyter notebook environments for
+multiple users. Often, this includes a desire to configure the user
+environment in some way.</p>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">jupyterhub-singleuser</span></code> server extends the standard Jupyter notebook
+server, most configuration and documentation that applies to Jupyter Notebook
+applies to the single-user environments. Configuration of user environments
+typically does not occur through JupyterHub itself, but rather through system-
+wide configuration of Jupyter, which is inherited by <code class="docutils literal notranslate"><span class="pre">jupyterhub-singleuser</span></code>.</p>
+<p><strong>Tip:</strong> When searching for configuration tips for JupyterHub user
+environments, try removing JupyterHub from your search because there are a lot
+more people out there configuring Jupyter than JupyterHub and the
+configuration is the same.</p>
+<p>This section will focus on user environments, including:</p>
+<ul class="simple">
+<li><p>Installing packages</p></li>
+<li><p>Configuring Jupyter and IPython</p></li>
+<li><p>Installing kernelspecs</p></li>
+<li><p>Using containers vs. multi-user hosts</p></li>
+</ul>
+<div class="section" id="installing-packages">
+<h2>Installing packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h2>
+<p>To make packages available to users, you generally will install packages
+system-wide or in a shared environment.</p>
+<p>This installation location should always be in the same environment that
+<code class="docutils literal notranslate"><span class="pre">jupyterhub-singleuser</span></code> itself is installed in, and must be <em>readable and
+executable</em> by your users. If you want users to be able to install additional
+packages, it must also be <em>writable</em> by your users.</p>
+<p>If you are using a standard system Python install, you would use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo python3 -m pip install numpy
+</pre></div>
+</div>
+<p>to install the numpy package in the default system Python 3 environment
+(typically <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>).</p>
+<p>You may also use conda to install packages. If you do, you should make sure
+that the conda environment has appropriate permissions for users to be able to
+run Python code in the env.</p>
+</div>
+<div class="section" id="configuring-jupyter-and-ipython">
+<h2>Configuring Jupyter and IPython<a class="headerlink" href="#configuring-jupyter-and-ipython" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/config_overview.html">Jupyter</a>
+and <a class="reference external" href="https://ipython.readthedocs.io/en/stable/development/config.html">IPython</a>
+have their own configuration systems.</p>
+<p>As a JupyterHub administrator, you will typically want to install and configure
+environments for all JupyterHub users. For example, you wish for each student in
+a class to have the same user environment configuration.</p>
+<p>Jupyter and IPython support <strong>“system-wide”</strong> locations for configuration, which
+is the logical place to put global configuration that you want to affect all
+users. It’s generally more efficient to configure user environments “system-wide”,
+and it’s a good idea to avoid creating files in users’ home directories.</p>
+<p>The typical locations for these config files are:</p>
+<ul class="simple">
+<li><p><strong>system-wide</strong> in <code class="docutils literal notranslate"><span class="pre">/etc/{jupyter|ipython}</span></code></p></li>
+<li><p><strong>env-wide</strong> (environment wide) in <code class="docutils literal notranslate"><span class="pre">{sys.prefix}/etc/{jupyter|ipython}</span></code>.</p></li>
+</ul>
+<div class="section" id="example-enable-an-extension-system-wide">
+<h3>Example: Enable an extension system-wide<a class="headerlink" href="#example-enable-an-extension-system-wide" title="Permalink to this headline">¶</a></h3>
+<p>For example, to enable the <code class="docutils literal notranslate"><span class="pre">cython</span></code> IPython extension for all of your users,
+create the file <code class="docutils literal notranslate"><span class="pre">/etc/ipython/ipython_config.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">InteractiveShellApp</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;cython&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-enable-a-jupyter-notebook-configuration-setting-for-all-users">
+<h3>Example: Enable a Jupyter notebook configuration setting for all users<a class="headerlink" href="#example-enable-a-jupyter-notebook-configuration-setting-for-all-users" title="Permalink to this headline">¶</a></h3>
+<p>To enable Jupyter notebook’s internal idle-shutdown behavior (requires
+notebook ≥ 5.4), set the following in the <code class="docutils literal notranslate"><span class="pre">/etc/jupyter/jupyter_notebook_config.py</span></code>
+file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shutdown the server after no activity for an hour</span>
+<span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">shutdown_no_activity_timeout</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span>
+<span class="c1"># shutdown kernels after no activity for 20 minutes</span>
+<span class="n">c</span><span class="o">.</span><span class="n">MappingKernelManager</span><span class="o">.</span><span class="n">cull_idle_timeout</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="mi">60</span>
+<span class="c1"># check for idle kernels every two minutes</span>
+<span class="n">c</span><span class="o">.</span><span class="n">MappingKernelManager</span><span class="o">.</span><span class="n">cull_interval</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">60</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installing-kernelspecs">
+<h2>Installing kernelspecs<a class="headerlink" href="#installing-kernelspecs" title="Permalink to this headline">¶</a></h2>
+<p>You may have multiple Jupyter kernels installed and want to make sure that
+they are available to all of your users. This means installing kernelspecs
+either system-wide (e.g. in /usr/local/) or in the <code class="docutils literal notranslate"><span class="pre">sys.prefix</span></code> of JupyterHub
+itself.</p>
+<p>Jupyter kernelspec installation is system wide by default, but some kernels
+may default to installing kernelspecs in your home directory. These will need
+to be moved system-wide to ensure that they are accessible.</p>
+<p>You can see where your kernelspecs are with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter kernelspec list
+</pre></div>
+</div>
+<div class="section" id="example-installing-kernels-system-wide">
+<h3>Example: Installing kernels system-wide<a class="headerlink" href="#example-installing-kernels-system-wide" title="Permalink to this headline">¶</a></h3>
+<p>Assuming I have a Python 2 and Python 3 environment that I want to make
+sure are available, I can install their specs system-wide (in /usr/local) with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/path/to/python3 -m IPython kernel install --prefix<span class="o">=</span>/usr/local
+/path/to/python2 -m IPython kernel install --prefix<span class="o">=</span>/usr/local
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="multi-user-hosts-vs-containers">
+<h2>Multi-user hosts vs. Containers<a class="headerlink" href="#multi-user-hosts-vs-containers" title="Permalink to this headline">¶</a></h2>
+<p>There are two broad categories of user environments that depend on what
+Spawner you choose:</p>
+<ul class="simple">
+<li><p>Multi-user hosts (shared system)</p></li>
+<li><p>Container-based</p></li>
+</ul>
+<p>How you configure user environments for each category can differ a bit
+depending on what Spawner you are using.</p>
+<p>The first category is a <strong>shared system (multi-user host)</strong> where
+each user has a JupyterHub account and a home directory as well as being
+a real system user. In this example, shared configuration and installation
+must be in a ‘system-wide’ location, such as <code class="docutils literal notranslate"><span class="pre">/etc/</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>
+or a custom prefix such as <code class="docutils literal notranslate"><span class="pre">/opt/conda</span></code>.</p>
+<p>When JupyterHub uses <strong>container-based</strong> Spawners (e.g. KubeSpawner or
+DockerSpawner), the ‘system-wide’ environment is really the container image
+which you are using for users.</p>
+<p>In both cases, you want to <em>avoid putting configuration in user home
+directories</em> because users can change those configuration settings. Also,
+home directories typically persist once they are created, so they are
+difficult for admins to update later.</p>
+</div>
+<div class="section" id="named-servers">
+<h2>Named servers<a class="headerlink" href="#named-servers" title="Permalink to this headline">¶</a></h2>
+<p>By default, in a JupyterHub deployment each user has exactly one server.</p>
+<p>JupyterHub can, however, have multiple servers per user.
+This is most useful in deployments where users can configure the environment
+in which their server will start (e.g. resource requests on an HPC cluster),
+so that a given user can have multiple configurations running at the same time,
+without having to stop and restart their one server.</p>
+<p>To allow named servers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">allow_named_servers</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Named servers were implemented in the REST API in JupyterHub 0.8,
+and JupyterHub 1.0 introduces UI for managing named servers via the user home page:</p>
+<p><img alt="named servers on the home page" src="../_images/named-servers-home1.png" /></p>
+<p>as well as the admin page:</p>
+<p><img alt="named servers on the admin page" src="../_images/named-servers-admin.png" /></p>
+<p>Named servers can be accessed, created, started, stopped, and deleted
+from these pages. Activity tracking is now per-server as well.</p>
+<p>The number of named servers per user can be limited by setting</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">named_server_limit_per_user</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../events/server-actions.html" title="previous page">JupyterHub server events</a>
+    <a class='right-next' id="next-link" href="config-examples.html" title="next page">Configuration examples</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

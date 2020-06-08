@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>The JupyterHub roadmap &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reporting security issues in Jupyter or JupyterHub" href="security.html" />
+    <link rel="prev" title="Testing JupyterHub" href="tests.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="community.html">Community communication channels</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="setup.html">Setting up a development install</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="docs.html">Contributing Documentation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="tests.html">Testing JupyterHub</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">The JupyterHub roadmap</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security.html">Reporting security issues in Jupyter or JupyterHub</a>
+              </li>
+          
+        
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#using-the-roadmap" class="nav-link">Using the roadmap</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#sharing-feedback-on-the-roadmap" class="nav-link">Sharing Feedback on the Roadmap</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#what-do-we-mean-by-next-step" class="nav-link">What do we mean by “next step”?</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#reviewing-and-updating-the-roadmap" class="nav-link">Reviewing and Updating the Roadmap</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#the-roadmap-proper" class="nav-link">The roadmap proper</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#project-vision" class="nav-link">Project vision</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#now" class="nav-link">Now</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#soon" class="nav-link">Soon</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#later" class="nav-link">Later</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="the-jupyterhub-roadmap">
+<h1>The JupyterHub roadmap<a class="headerlink" href="#the-jupyterhub-roadmap" title="Permalink to this headline">¶</a></h1>
+<p>This roadmap collects “next steps” for JupyterHub. It is about creating a
+shared understanding of the project’s vision and direction amongst
+the community of users, contributors, and maintainers.
+The goal is to communicate priorities and upcoming release plans.
+It is not a aimed at limiting contributions to what is listed here.</p>
+<div class="section" id="using-the-roadmap">
+<h2>Using the roadmap<a class="headerlink" href="#using-the-roadmap" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sharing-feedback-on-the-roadmap">
+<h3>Sharing Feedback on the Roadmap<a class="headerlink" href="#sharing-feedback-on-the-roadmap" title="Permalink to this headline">¶</a></h3>
+<p>All of the community is encouraged to provide feedback as well as share new
+ideas with the community. Please do so by submitting an issue. If you want to
+have an informal conversation first use one of the other communication channels.
+After submitting the issue, others from the community will probably
+respond with questions or comments they have to clarify the issue. The
+maintainers will help identify what a good next step is for the issue.</p>
+</div>
+<div class="section" id="what-do-we-mean-by-next-step">
+<h3>What do we mean by “next step”?<a class="headerlink" href="#what-do-we-mean-by-next-step" title="Permalink to this headline">¶</a></h3>
+<p>When submitting an issue, think about what “next step” category best describes
+your issue:</p>
+<ul class="simple">
+<li><p><strong>now</strong>, concrete/actionable step that is ready for someone to start work on.
+These might be items that have a link to an issue or more abstract like
+“decrease typos and dead links in the documentation”</p></li>
+<li><p><strong>soon</strong>, less concrete/actionable step that is going to happen soon,
+discussions around the topic are coming close to an end at which point it can
+move into the “now” category</p></li>
+<li><p><strong>later</strong>, abstract ideas or tasks, need a lot of discussion or
+experimentation to shape the idea so that it can be executed. Can also
+contain concrete/actionable steps that have been postponed on purpose
+(these are steps that could be in “now” but the decision was taken to work on
+them later)</p></li>
+</ul>
+</div>
+<div class="section" id="reviewing-and-updating-the-roadmap">
+<h3>Reviewing and Updating the Roadmap<a class="headerlink" href="#reviewing-and-updating-the-roadmap" title="Permalink to this headline">¶</a></h3>
+<p>The roadmap will get updated as time passes (next review by 1st December) based
+on discussions and ideas captured as issues.
+This means this list should not be exhaustive, it should only represent
+the “top of the stack” of ideas. It should
+not function as a wish list, collection of feature requests or todo list.
+For those please create a
+<a class="reference external" href="https://github.com/jupyterhub/jupyterhub/issues/new">new issue</a>.</p>
+<p>The roadmap should give the reader an idea of what is happening next, what needs
+input and discussion before it can happen and what has been postponed.</p>
+</div>
+</div>
+<div class="section" id="the-roadmap-proper">
+<h2>The roadmap proper<a class="headerlink" href="#the-roadmap-proper" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="project-vision">
+<h3>Project vision<a class="headerlink" href="#project-vision" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub is a dependable tool used by humans that reduces the complexity of
+creating the environment in which a piece of software can be executed.</p>
+</div>
+<div class="section" id="now">
+<h3>Now<a class="headerlink" href="#now" title="Permalink to this headline">¶</a></h3>
+<p>These “Now” items are considered active areas of focus for the project:</p>
+<ul class="simple">
+<li><p>HubShare - a sharing service for use with JupyterHub.</p>
+<ul>
+<li><p>Users should be able to:</p>
+<ul>
+<li><p>Push a project to other users.</p></li>
+<li><p>Get a checkout of a project from other users.</p></li>
+<li><p>Push updates to a published project.</p></li>
+<li><p>Pull updates from a published project.</p></li>
+<li><p>Manage conflicts/merges by simply picking a version (our/theirs)</p></li>
+<li><p>Get a checkout of a project from the internet. These steps are completely different from saving notebooks/files.</p></li>
+<li><p>Have directories that are managed by git completely separately from our stuff.</p></li>
+<li><p>Look at pushed content that they have access to without an explicit pull.</p></li>
+<li><p>Define and manage teams of users.</p>
+<ul>
+<li><p>Adding/removing a user to/from a team gives/removes them access to all projects that team has access to.</p></li>
+</ul>
+</li>
+<li><p>Build other services, such as static HTML publishing and dashboarding on top of these things.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="soon">
+<h3>Soon<a class="headerlink" href="#soon" title="Permalink to this headline">¶</a></h3>
+<p>These “Soon” items are under discussion. Once an item reaches the point of an
+actionable plan, the item will be moved to the “Now” section. Typically,
+these will be moved at a future review of the roadmap.</p>
+<ul class="simple">
+<li><p>resource monitoring and management:</p>
+<ul>
+<li><p>(prometheus?) API for resource monitoring</p></li>
+<li><p>tracking activity on single-user servers instead of the proxy</p></li>
+<li><p>notes and activity tracking per API token</p></li>
+<li><p>UI for managing named servers</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="later">
+<h3>Later<a class="headerlink" href="#later" title="Permalink to this headline">¶</a></h3>
+<p>The “Later” items are things that are at the back of the project’s mind. At this
+time there is no active plan for an item. The project would like to find the
+resources and time to discuss these ideas.</p>
+<ul class="simple">
+<li><p>real-time collaboration</p>
+<ul>
+<li><p>Enter into real-time collaboration mode for a project that starts a shared execution context.</p></li>
+<li><p>Once the single-user notebook package supports realtime collaboration,
+implement sharing mechanism integrated into the Hub.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="tests.html" title="previous page">Testing JupyterHub</a>
+    <a class='right-next' id="next-link" href="security.html" title="next page">Reporting security issues in Jupyter or JupyterHub</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Spawners and single-user notebook servers &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="External services" href="services-basics.html" />
+    <link rel="prev" title="Authentication and User Basics" href="authenticators-users-basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="config-basics.html">Configuration Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="networking-basics.html">Networking basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security-basics.html">Security settings</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators-users-basics.html">Authentication and User Basics</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Spawners and single-user notebook servers</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services-basics.html">External services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="faq.html">Frequently asked questions</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="institutional-faq.html">Institutional FAQ</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="spawners-and-single-user-notebook-servers">
+<h1>Spawners and single-user notebook servers<a class="headerlink" href="#spawners-and-single-user-notebook-servers" title="Permalink to this headline">¶</a></h1>
+<p>Since the single-user server is an instance of <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>, an entire separate
+multi-process application, there are many aspect of that server can configure, and a lot of ways
+to express that configuration.</p>
+<p>At the JupyterHub level, you can set some values on the Spawner. The simplest of these is
+<code class="docutils literal notranslate"><span class="pre">Spawner.notebook_dir</span></code>, which lets you set the root directory for a user’s server. This root
+notebook directory is the highest level directory users will be able to access in the notebook
+dashboard. In this example, the root notebook directory is set to <code class="docutils literal notranslate"><span class="pre">~/notebooks</span></code>, where <code class="docutils literal notranslate"><span class="pre">~</span></code> is
+expanded to the user’s home directory.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">Spawner</span><span class="o">.</span><span class="n">notebook_dir</span> <span class="o">=</span> <span class="s1">&#39;~/notebooks&#39;</span>
+</pre></div>
+</div>
+<p>You can also specify extra command-line arguments to the notebook server with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">Spawner</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--debug&#39;</span><span class="p">,</span> <span class="s1">&#39;--profile=PHYS131&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This could be used to set the users default page for the single user server:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">Spawner</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--NotebookApp.default_url=/notebooks/Welcome.ipynb&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Since the single-user server extends the notebook server application,
+it still loads configuration from the <code class="docutils literal notranslate"><span class="pre">jupyter_notebook_config.py</span></code> config file.
+Each user may have one of these files in <code class="docutils literal notranslate"><span class="pre">$HOME/.jupyter/</span></code>.
+Jupyter also supports loading system-wide config files from <code class="docutils literal notranslate"><span class="pre">/etc/jupyter/</span></code>,
+which is the place to put configuration that you want to affect all of your users.</p>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="authenticators-users-basics.html" title="previous page">Authentication and User Basics</a>
+    <a class='right-next' id="next-link" href="services-basics.html" title="next page">External services</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

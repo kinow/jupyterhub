@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Installation Basics &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Install JupyterHub and JupyterLab from the ground up" href="installation-guide-hard.html" />
+    <link rel="prev" title="Using Docker" href="quickstart-docker.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="index.html">
+      <img src="_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+        
+          
+              <li class="">
+                  <a href="quickstart.html">Quickstart</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="quickstart-docker.html">Using Docker</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Installation Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="installation-guide-hard.html">Install JupyterHub and JupyterLab from the ground up</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#platform-support" class="nav-link">Platform support</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#planning-your-installation" class="nav-link">Planning your installation</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#folders-and-file-locations" class="nav-link">Folders and File Locations</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="installation-basics">
+<h1>Installation Basics<a class="headerlink" href="#installation-basics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="platform-support">
+<h2>Platform support<a class="headerlink" href="#platform-support" title="Permalink to this headline">¶</a></h2>
+<p>JupyterHub is supported on Linux/Unix based systems. To use JupyterHub, you need
+a Unix server (typically Linux) running somewhere that is accessible to your
+team on the network. The JupyterHub server can be on an internal network at your
+organization, or it can run on the public internet (in which case, take care
+with the Hub’s <a class="reference internal" href="getting-started/security-basics.html"><span class="doc">security</span></a>).</p>
+<p>JupyterHub officially <strong>does not</strong> support Windows. You may be able to use
+JupyterHub on Windows if you use a Spawner and Authenticator that work on
+Windows, but the JupyterHub defaults will not. Bugs reported on Windows will not
+be accepted, and the test suite will not run on Windows. Small patches that fix
+minor Windows compatibility issues (such as basic installation) <strong>may</strong> be accepted,
+however. For Windows-based systems, we would recommend running JupyterHub in a
+docker container or Linux VM.</p>
+<p><a class="reference external" href="http://www.tornadoweb.org/en/stable/#installation">Additional Reference:</a>
+Tornado’s documentation on Windows platform support</p>
+</div>
+<div class="section" id="planning-your-installation">
+<h2>Planning your installation<a class="headerlink" href="#planning-your-installation" title="Permalink to this headline">¶</a></h2>
+<p>Prior to beginning installation, it’s helpful to consider some of the following:</p>
+<ul class="simple">
+<li><p>deployment system (bare metal, Docker)</p></li>
+<li><p>Authentication (PAM, OAuth, etc.)</p></li>
+<li><p>Spawner of singleuser notebook servers (Docker, Batch, etc.)</p></li>
+<li><p>Services (nbgrader, etc.)</p></li>
+<li><p>JupyterHub database (default SQLite; traditional RDBMS such as PostgreSQL,)
+MySQL, or other databases supported by <a class="reference external" href="http://www.sqlalchemy.org">SQLAlchemy</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="folders-and-file-locations">
+<h2>Folders and File Locations<a class="headerlink" href="#folders-and-file-locations" title="Permalink to this headline">¶</a></h2>
+<p>It is recommended to put all of the files used by JupyterHub into standard
+UNIX filesystem locations.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/srv/jupyterhub</span></code> for all security and runtime files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/jupyterhub</span></code> for all configuration files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var/log</span></code> for log files</p></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="quickstart-docker.html" title="previous page">Using Docker</a>
+    <a class='right-next' id="next-link" href="installation-guide-hard.html" title="next page">Install JupyterHub and JupyterLab from the ground up</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

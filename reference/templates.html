@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Working with templates and UI &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Eventlogging and Telemetry" href="../events/index.html" />
+    <link rel="prev" title="The Hub’s Database" href="database.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="technical-overview.html">Technical Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="urls.html">JupyterHub URL scheme</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="websecurity.html">Security Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators.html">Authenticators</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners.html">Spawners</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services.html">Services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="proxy.html">Writing a custom Proxy implementation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="separate-proxy.html">Running proxy separately from the hub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="rest.html">Using JupyterHub’s REST API</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="database.html">The Hub’s Database</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Working with templates and UI</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="../events/index.html">Eventlogging and Telemetry</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-user-env.html">Configuring user environments</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-examples.html">Configuration examples</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-ghoauth.html">Configure GitHub OAuth</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-proxy.html">Using a reverse proxy</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-sudo.html">Run JupyterHub without root privileges using sudo</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-reference.html">Configuration Reference</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#custom-templates" class="nav-link">Custom Templates</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#extending-templates" class="nav-link">Extending Templates</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#example" class="nav-link">Example</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#page-announcements" class="nav-link">Page Announcements</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#announcement-configuration-variables" class="nav-link">Announcement Configuration Variables</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="working-with-templates-and-ui">
+<h1>Working with templates and UI<a class="headerlink" href="#working-with-templates-and-ui" title="Permalink to this headline">¶</a></h1>
+<p>The pages of the JupyterHub application are generated from
+<a class="reference external" href="http://jinja.pocoo.org/">Jinja</a> templates.  These allow the header, for
+example, to be defined once and incorporated into all pages.  By providing
+your own templates, you can have complete control over JupyterHub’s
+appearance.</p>
+<div class="section" id="custom-templates">
+<h2>Custom Templates<a class="headerlink" href="#custom-templates" title="Permalink to this headline">¶</a></h2>
+<p>JupyterHub will look for custom templates in all of the paths in the
+<code class="docutils literal notranslate"><span class="pre">JupyterHub.template_paths</span></code> configuration option, falling back on the
+<a class="reference external" href="https://github.com/jupyterhub/jupyterhub/tree/master/share/jupyterhub/templates">default templates</a>
+if no custom template with that name is found. This fallback
+behavior is new in version 0.9; previous versions searched only those paths
+explicitly included in <code class="docutils literal notranslate"><span class="pre">template_paths</span></code>. You may override as many
+or as few templates as you desire.</p>
+</div>
+<div class="section" id="extending-templates">
+<h2>Extending Templates<a class="headerlink" href="#extending-templates" title="Permalink to this headline">¶</a></h2>
+<p>Jinja provides a mechanism to <a class="reference external" href="http://jinja.pocoo.org/docs/2.10/templates/#template-inheritance">extend templates</a>.
+A base template can define a <code class="docutils literal notranslate"><span class="pre">block</span></code>, and child templates can replace or
+supplement the material in the block.  The
+<a class="reference external" href="https://github.com/jupyterhub/jupyterhub/tree/master/share/jupyterhub/templates">JupyterHub templates</a>
+make extensive use of blocks, which allows you to customize parts of the
+interface easily.</p>
+<p>In general, a child template can extend a base template, <code class="docutils literal notranslate"><span class="pre">page.html</span></code>, by beginning with:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% extends &quot;page.html&quot; %}
+</pre></div>
+</div>
+<p>This works, unless you are trying to extend the default template for the same
+file name.  Starting in version 0.9, you may refer to the base file with a
+<code class="docutils literal notranslate"><span class="pre">templates/</span></code> prefix.  Thus, if you are writing a custom <code class="docutils literal notranslate"><span class="pre">page.html</span></code>, start the
+file with this block:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% extends &quot;templates/page.html&quot; %}
+</pre></div>
+</div>
+<p>By defining <code class="docutils literal notranslate"><span class="pre">block</span></code>s with same name as in the base template, child templates
+can replace those sections with custom content.  The content from the base
+template can be included with the <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">super()</span> <span class="pre">}}</span></code> directive.</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>To add an additional message to the spawn-pending page, below the existing
+text about the server starting up, place this content in a file named
+<code class="docutils literal notranslate"><span class="pre">spawn_pending.html</span></code> in a directory included in the
+<code class="docutils literal notranslate"><span class="pre">JupyterHub.template_paths</span></code> configuration option.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% extends &quot;templates/spawn_pending.html&quot; %}
+
+{% block message %}
+{{ super() }}
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Patience is a virtue.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="page-announcements">
+<h2>Page Announcements<a class="headerlink" href="#page-announcements" title="Permalink to this headline">¶</a></h2>
+<p>To add announcements to be displayed on a page, you have two options:</p>
+<ul class="simple">
+<li><p>Extend the page templates as described above</p></li>
+<li><p>Use configuration variables</p></li>
+</ul>
+<div class="section" id="announcement-configuration-variables">
+<h3>Announcement Configuration Variables<a class="headerlink" href="#announcement-configuration-variables" title="Permalink to this headline">¶</a></h3>
+<p>If you set the configuration variable <code class="docutils literal notranslate"><span class="pre">JupyterHub.template_vars</span> <span class="pre">=</span> <span class="pre">{'announcement':</span> <span class="pre">'some_text'}</span></code>, the given <code class="docutils literal notranslate"><span class="pre">some_text</span></code> will be placed on
+the top of all pages.  The more specific variables
+<code class="docutils literal notranslate"><span class="pre">announcement_login</span></code>, <code class="docutils literal notranslate"><span class="pre">announcement_spawn</span></code>, <code class="docutils literal notranslate"><span class="pre">announcement_home</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">announcement_logout</span></code> are more specific and only show on their
+respective pages (overriding the global <code class="docutils literal notranslate"><span class="pre">announcement</span></code> variable).
+Note that changing these variables require a restart, unlike direct
+template extension.</p>
+<p>You can get the same effect by extending templates, which allows you
+to update the messages without restarting.  Set
+<code class="docutils literal notranslate"><span class="pre">c.JupyterHub.template_paths</span></code> as mentioned above, and then create a
+template (for example, <code class="docutils literal notranslate"><span class="pre">login.html</span></code>) with:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% extends &quot;templates/login.html&quot; %}
+{% set announcement = &#39;some message&#39; %}
+</pre></div>
+</div>
+<p>Extending <code class="docutils literal notranslate"><span class="pre">page.html</span></code> puts the message on all pages, but note that
+extending <code class="docutils literal notranslate"><span class="pre">page.html</span></code> take precedence over an extension of a specific
+page (unlike the variable-based approach above).</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="database.html" title="previous page">The Hub’s Database</a>
+    <a class='right-next' id="next-link" href="../events/index.html" title="next page">Eventlogging and Telemetry</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

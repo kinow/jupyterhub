@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JupyterHub URL scheme &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Security Overview" href="websecurity.html" />
+    <link rel="prev" title="Technical Overview" href="technical-overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="technical-overview.html">Technical Overview</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">JupyterHub URL scheme</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="websecurity.html">Security Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators.html">Authenticators</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners.html">Spawners</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services.html">Services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="proxy.html">Writing a custom Proxy implementation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="separate-proxy.html">Running proxy separately from the hub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="rest.html">Using JupyterHub’s REST API</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="database.html">The Hub’s Database</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="templates.html">Working with templates and UI</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="../events/index.html">Eventlogging and Telemetry</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-user-env.html">Configuring user environments</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-examples.html">Configuration examples</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-ghoauth.html">Configure GitHub OAuth</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-proxy.html">Using a reverse proxy</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-sudo.html">Run JupyterHub without root privileges using sudo</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-reference.html">Configuration Reference</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">/</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#hub" class="nav-link">/hub/</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#hub-home" class="nav-link">/hub/home</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#hub-login" class="nav-link">/hub/login</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#hub-logout" class="nav-link">/hub/logout</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#user-username-servername" class="nav-link">/user/:username[/:servername]</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#hub-user-username-servername" class="nav-link">/hub/user/:username[/:servername]</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#special-handling-of-api-requests" class="nav-link">Special handling of API requests</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#user-redirect" class="nav-link">/user-redirect/...</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#spawning" class="nav-link">Spawning</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#hub-spawn-username-servername" class="nav-link">/hub/spawn[/:username[/:servername]]</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#hub-spawn-pending-username-servername" class="nav-link">/hub/spawn-pending[/:username[/:servername]]</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#hub-token" class="nav-link">/hub/token</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#hub-admin" class="nav-link">/hub/admin</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="jupyterhub-url-scheme">
+<h1>JupyterHub URL scheme<a class="headerlink" href="#jupyterhub-url-scheme" title="Permalink to this headline">¶</a></h1>
+<p>This document describes how JupyterHub routes requests.</p>
+<p>This does not include the <a class="reference internal" href="rest.html"><span class="doc">REST API</span></a> urls.</p>
+<p>In general, all URLs can be prefixed with <code class="docutils literal notranslate"><span class="pre">c.JupyterHub.base_url</span></code> to
+run the whole JupyterHub application on a prefix.</p>
+<p>All authenticated handlers redirect to <code class="docutils literal notranslate"><span class="pre">/hub/login</span></code> to login users
+prior to being redirected back to the originating page.
+The returned request should preserve all query parameters.</p>
+<div class="section" id="id1">
+<h2><code class="docutils literal notranslate"><span class="pre">/</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The top-level request is always a simple redirect to <code class="docutils literal notranslate"><span class="pre">/hub/</span></code>,
+to be handled by the default JupyterHub handler.</p>
+<p>In general, all requests to <code class="docutils literal notranslate"><span class="pre">/anything</span></code> that do not start with <code class="docutils literal notranslate"><span class="pre">/hub/</span></code>
+but are routed to the Hub, will be redirected to <code class="docutils literal notranslate"><span class="pre">/hub/anything</span></code> before being handled by the Hub.</p>
+</div>
+<div class="section" id="hub">
+<h2><code class="docutils literal notranslate"><span class="pre">/hub/</span></code><a class="headerlink" href="#hub" title="Permalink to this headline">¶</a></h2>
+<p>This is an authenticated URL.</p>
+<p>This handler redirects users to the default URL of the application,
+which defaults to the user’s default server.
+That is, it redirects to <code class="docutils literal notranslate"><span class="pre">/hub/spawn</span></code> if the user’s server is not running,
+or the server itself (<code class="docutils literal notranslate"><span class="pre">/user/:name</span></code>) if the server is running.</p>
+<p>This default url behavior can be customized in two ways:</p>
+<p>To redirect users to the JupyterHub home page (<code class="docutils literal notranslate"><span class="pre">/hub/home</span></code>)
+instead of spawning their server,
+set <code class="docutils literal notranslate"><span class="pre">redirect_to_server</span></code> to False:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">redirect_to_server</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>This might be useful if you have a Hub where you expect
+users to be managing multiple server configurations
+and automatic spawning is not desirable.</p>
+<p>Second, you can customise the landing page to any page you like,
+such as a custom service you have deployed e.g. with course information:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">default_url</span> <span class="o">=</span> <span class="s1">&#39;/services/my-landing-service&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hub-home">
+<h2><code class="docutils literal notranslate"><span class="pre">/hub/home</span></code><a class="headerlink" href="#hub-home" title="Permalink to this headline">¶</a></h2>
+<p><img alt="The Hub home page with named servers enabled" src="../_images/named-servers-home1.png" /></p>
+<p>By default, the Hub home page has just one or two buttons
+for starting and stopping the user’s server.</p>
+<p>If named servers are enabled, there will be some additional
+tools for management of named servers.</p>
+<p><em>Version added: 1.0</em> named server UI is new in 1.0.</p>
+</div>
+<div class="section" id="hub-login">
+<h2><code class="docutils literal notranslate"><span class="pre">/hub/login</span></code><a class="headerlink" href="#hub-login" title="Permalink to this headline">¶</a></h2>
+<p>This is the JupyterHub login page.
+If you have a form-based username+password login,
+such as the default PAMAuthenticator,
+this page will render the login form.</p>
+<p><img alt="A login form" src="../_images/login-form.png" /></p>
+<p>If login is handled by an external service,
+e.g. with OAuth, this page will have a button,
+declaring “Login with …” which users can click
+to login with the chosen service.</p>
+<p><img alt="A login redirect button" src="../_images/login-button.png" /></p>
+<p>If you want to skip the user-interaction to initiate logging in
+via the button, you can set</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">auto_login</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>This can be useful when the user is “already logged in” via some mechanism,
+but a handshake via redirects is necessary to complete the authentication with JupyterHub.</p>
+</div>
+<div class="section" id="hub-logout">
+<h2><code class="docutils literal notranslate"><span class="pre">/hub/logout</span></code><a class="headerlink" href="#hub-logout" title="Permalink to this headline">¶</a></h2>
+<p>Visiting <code class="docutils literal notranslate"><span class="pre">/hub/logout</span></code> clears cookies from the current browser.
+Note that <strong>logging out does not stop a user’s server(s)</strong> by default.</p>
+<p>If you would like to shutdown user servers on logout,
+you can enable this behavior with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">shutdown_on_logout</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Be careful with this setting because logging out one browser
+does not mean the user is no longer actively using their server from another machine.</p>
+</div>
+<div class="section" id="user-username-servername">
+<h2><code class="docutils literal notranslate"><span class="pre">/user/:username[/:servername]</span></code><a class="headerlink" href="#user-username-servername" title="Permalink to this headline">¶</a></h2>
+<p>If a user’s server is running, this URL is handled by the user’s given server,
+not the Hub.
+The username is the first part and, if using named servers,
+the server name is the second part.</p>
+<p>If the user’s server is <em>not</em> running, this will be redirected to <code class="docutils literal notranslate"><span class="pre">/hub/user/:username/...</span></code></p>
+</div>
+<div class="section" id="hub-user-username-servername">
+<h2><code class="docutils literal notranslate"><span class="pre">/hub/user/:username[/:servername]</span></code><a class="headerlink" href="#hub-user-username-servername" title="Permalink to this headline">¶</a></h2>
+<p>This URL indicates a request for a user server that is not running
+(because <code class="docutils literal notranslate"><span class="pre">/user/...</span></code> would have been handled by the notebook server
+if the specified server were running).</p>
+<p>Handling this URL is the most complicated condition in JupyterHub,
+because there can be many states:</p>
+<ol class="simple">
+<li><p>server is not active
+a. user matches
+b. user doesn’t match</p></li>
+<li><p>server is ready</p></li>
+<li><p>server is pending, but not ready</p></li>
+</ol>
+<p>If the server is pending spawn,
+the browser will be redirected to <code class="docutils literal notranslate"><span class="pre">/hub/spawn-pending/:username/:servername</span></code>
+to see a progress page while waiting for the server to be ready.</p>
+<p>If the server is not active at all,
+a page will be served with a link to <code class="docutils literal notranslate"><span class="pre">/hub/spawn/:username/:servername</span></code>.
+Following that link will launch the requested server.
+The HTTP status will be 503 in this case because a request has been made for a server that is not running.</p>
+<p>If the server is ready, it is assumed that the proxy has not yet registered the route.
+Some checks are performed and a delay is added before redirecting back to <code class="docutils literal notranslate"><span class="pre">/user/:username/:servername/...</span></code>.
+If something is really wrong, this can result in a redirect loop.</p>
+<p>Visiting this page will never result in triggering the spawn of servers
+without additional user action (i.e. clicking the link on the page)</p>
+<p><img alt="Visiting a URL for a server that's not running" src="../_images/not-running.png" /></p>
+<p><em>Version changed: 1.0</em></p>
+<p>Prior to 1.0, this URL itself was responsible for spawning servers,
+and served the progress page if it was pending,
+redirected to running servers, and
+This was useful because it made sure that requested servers were restarted after they stopped,
+but could also be harmful because unused servers would continuously be restarted if e.g.
+an idle JupyterLab frontend were open pointed at it,
+which constantly makes polling requests.</p>
+<div class="section" id="special-handling-of-api-requests">
+<h3>Special handling of API requests<a class="headerlink" href="#special-handling-of-api-requests" title="Permalink to this headline">¶</a></h3>
+<p>Requests to <code class="docutils literal notranslate"><span class="pre">/user/:username[/:servername]/api/...</span></code> are assumed to be
+from applications connected to stopped servers.
+These are failed with 503 and an informative JSON error message
+indicating how to spawn the server.
+This is meant to help applications such as JupyterLab
+that are connected to a server that has stopped.</p>
+<p><em>Version changed: 1.0</em></p>
+<p>JupyterHub 0.9 failed these API requests with status 404,
+but 1.0 uses 503.</p>
+</div>
+</div>
+<div class="section" id="user-redirect">
+<h2><code class="docutils literal notranslate"><span class="pre">/user-redirect/...</span></code><a class="headerlink" href="#user-redirect" title="Permalink to this headline">¶</a></h2>
+<p>This URL is for sharing a URL that will redirect a user
+to a path on their own default server.
+This is useful when users have the same file at the same URL on their servers,
+and you want a single link to give to any user that will open that file on their server.</p>
+<p>e.g. a link to <code class="docutils literal notranslate"><span class="pre">/user-redirect/notebooks/Index.ipynb</span></code>
+will send user <code class="docutils literal notranslate"><span class="pre">hortense</span></code> to <code class="docutils literal notranslate"><span class="pre">/user/hortense/notebooks/Index.ipynb</span></code></p>
+<p><strong>DO NOT</strong> share links to your own server with other users.
+This will not work in general,
+unless you grant those users access to your server.</p>
+<p><strong>Contributions welcome:</strong> The JupyterLab “shareable link” should share this link
+when run with JupyterHub, but it does not.
+See <a class="reference external" href="https://github.com/jupyterhub/jupyterlab-hub">jupyterlab-hub</a>
+where this should probably be done and
+<a class="reference external" href="https://github.com/jupyterlab/jupyterlab/issues/5388">this issue in JupyterLab</a>
+that is intended to make it possible.</p>
+</div>
+<div class="section" id="spawning">
+<h2>Spawning<a class="headerlink" href="#spawning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hub-spawn-username-servername">
+<h3><code class="docutils literal notranslate"><span class="pre">/hub/spawn[/:username[/:servername]]</span></code><a class="headerlink" href="#hub-spawn-username-servername" title="Permalink to this headline">¶</a></h3>
+<p>Requesting <code class="docutils literal notranslate"><span class="pre">/hub/spawn</span></code> will spawn the default server for the current user.
+If <code class="docutils literal notranslate"><span class="pre">username</span></code> and optionally <code class="docutils literal notranslate"><span class="pre">servername</span></code> are specified,
+then the specified server for the specified user will be spawned.
+Once spawn has been requested,
+the browser is redirected to <code class="docutils literal notranslate"><span class="pre">/hub/spawn-pending/...</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">Spawner.options_form</span></code> is used,
+this will render a form,
+and a POST request will trigger the actual spawn and redirect.</p>
+<p><img alt="The spawn form" src="../_images/spawn-form.png" /></p>
+<p><em>Version added: 1.0</em></p>
+<p>1.0 adds the ability to specify username and servername.
+Prior to 1.0, only <code class="docutils literal notranslate"><span class="pre">/hub/spawn</span></code> was recognized for the default server.</p>
+<p><em>Version changed: 1.0</em></p>
+<p>Prior to 1.0, this page redirected back to <code class="docutils literal notranslate"><span class="pre">/hub/user/:username</span></code>,
+which was responsible for triggering spawn and rendering progress, etc.</p>
+</div>
+<div class="section" id="hub-spawn-pending-username-servername">
+<h3><code class="docutils literal notranslate"><span class="pre">/hub/spawn-pending[/:username[/:servername]]</span></code><a class="headerlink" href="#hub-spawn-pending-username-servername" title="Permalink to this headline">¶</a></h3>
+<p><img alt="The spawn pending page" src="../_images/spawn-pending.png" /></p>
+<p><em>Version added: 1.0</em> this URL is new in JupyterHub 1.0.</p>
+<p>This page renders the progress view for the given spawn request.
+Once the server is ready,
+the browser is redirected to the running server at <code class="docutils literal notranslate"><span class="pre">/user/:username/:servername/...</span></code>.</p>
+<p>If this page is requested at any time after the specified server is ready,
+the browser will be redirected to the running server.</p>
+<p>Requesting this page will never trigger any side effects.
+If the server is not running (e.g. because the spawn has failed),
+the spawn failure message (if applicable) will be displayed,
+and the page will show a link back to <code class="docutils literal notranslate"><span class="pre">/hub/spawn/...</span></code>.</p>
+</div>
+</div>
+<div class="section" id="hub-token">
+<h2><code class="docutils literal notranslate"><span class="pre">/hub/token</span></code><a class="headerlink" href="#hub-token" title="Permalink to this headline">¶</a></h2>
+<p><img alt="The token management page" src="../_images/token-page.png" /></p>
+<p>On this page, users can manage their JupyterHub API tokens.
+They can revoke access and request new tokens for writing scripts
+against the <a class="reference internal" href="rest.html"><span class="doc">JupyterHub REST API</span></a>.</p>
+</div>
+<div class="section" id="hub-admin">
+<h2><code class="docutils literal notranslate"><span class="pre">/hub/admin</span></code><a class="headerlink" href="#hub-admin" title="Permalink to this headline">¶</a></h2>
+<p><img alt="The admin panel" src="../_images/named-servers-admin.png" /></p>
+<p>Administrators can take various administrative actions from this page:</p>
+<ol class="simple">
+<li><p>add/remove users</p></li>
+<li><p>grant admin privileges</p></li>
+<li><p>start/stop user servers</p></li>
+<li><p>shutdown JupyterHub itself</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="technical-overview.html" title="previous page">Technical Overview</a>
+    <a class='right-next' id="next-link" href="websecurity.html" title="next page">Security Overview</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

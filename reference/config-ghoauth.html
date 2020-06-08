@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Configure GitHub OAuth &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using a reverse proxy" href="config-proxy.html" />
+    <link rel="prev" title="Configuration examples" href="config-examples.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="technical-overview.html">Technical Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="urls.html">JupyterHub URL scheme</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="websecurity.html">Security Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators.html">Authenticators</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners.html">Spawners</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services.html">Services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="proxy.html">Writing a custom Proxy implementation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="separate-proxy.html">Running proxy separately from the hub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="rest.html">Using JupyterHub’s REST API</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="database.html">The Hub’s Database</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="templates.html">Working with templates and UI</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="../events/index.html">Eventlogging and Telemetry</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-user-env.html">Configuring user environments</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-examples.html">Configuration examples</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Configure GitHub OAuth</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-proxy.html">Using a reverse proxy</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-sudo.html">Run JupyterHub without root privileges using sudo</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-reference.html">Configuration Reference</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="configure-github-oauth">
+<h1>Configure GitHub OAuth<a class="headerlink" href="#configure-github-oauth" title="Permalink to this headline">¶</a></h1>
+<p>In this example, we show a configuration file for a fairly standard JupyterHub
+deployment with the following assumptions:</p>
+<ul class="simple">
+<li><p>Running JupyterHub on a single cloud server</p></li>
+<li><p>Using SSL on the standard HTTPS port 443</p></li>
+<li><p>Using GitHub OAuth (using oauthenticator) for login</p></li>
+<li><p>Using the default spawner (to configure other spawners, uncomment and edit
+<code class="docutils literal notranslate"><span class="pre">spawner_class</span></code> as well as follow the instructions for your desired spawner)</p></li>
+<li><p>Users exist locally on the server</p></li>
+<li><p>Users’ notebooks to be served from <code class="docutils literal notranslate"><span class="pre">~/assignments</span></code> to allow users to browse
+for notebooks within other users’ home directories</p></li>
+<li><p>You want the landing page for each user to be a <code class="docutils literal notranslate"><span class="pre">Welcome.ipynb</span></code> notebook in
+their assignments directory.</p></li>
+<li><p>All runtime files are put into <code class="docutils literal notranslate"><span class="pre">/srv/jupyterhub</span></code> and log files in <code class="docutils literal notranslate"><span class="pre">/var/log</span></code>.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> file would have these settings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># jupyterhub_config.py file</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">pjoin</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span>
+
+<span class="n">runtime_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/srv/jupyterhub&#39;</span><span class="p">)</span>
+<span class="n">ssl_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">runtime_dir</span><span class="p">,</span> <span class="s1">&#39;ssl&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ssl_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ssl_dir</span><span class="p">)</span>
+
+<span class="c1"># Allows multiple single-server per user</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">allow_named_servers</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># https on :443</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">443</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">ssl_key</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">ssl_dir</span><span class="p">,</span> <span class="s1">&#39;ssl.key&#39;</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">ssl_cert</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">ssl_dir</span><span class="p">,</span> <span class="s1">&#39;ssl.cert&#39;</span><span class="p">)</span>
+
+<span class="c1"># put the JupyterHub cookie secret and state db</span>
+<span class="c1"># in /var/run/jupyterhub</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">cookie_secret_file</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">runtime_dir</span><span class="p">,</span> <span class="s1">&#39;cookie_secret&#39;</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">db_url</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">runtime_dir</span><span class="p">,</span> <span class="s1">&#39;jupyterhub.sqlite&#39;</span><span class="p">)</span>
+<span class="c1"># or `--db=/path/to/jupyterhub.sqlite` on the command-line</span>
+
+<span class="c1"># use GitHub OAuthenticator for local users</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">authenticator_class</span> <span class="o">=</span> <span class="s1">&#39;oauthenticator.LocalGitHubOAuthenticator&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">GitHubOAuthenticator</span><span class="o">.</span><span class="n">oauth_callback_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OAUTH_CALLBACK_URL&#39;</span><span class="p">]</span>
+
+<span class="c1"># create system users that don&#39;t exist yet</span>
+<span class="n">c</span><span class="o">.</span><span class="n">LocalAuthenticator</span><span class="o">.</span><span class="n">create_system_users</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># specify users and admin</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">whitelist</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rgbkrk&#39;</span><span class="p">,</span> <span class="s1">&#39;minrk&#39;</span><span class="p">,</span> <span class="s1">&#39;jhamrick&#39;</span><span class="p">}</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">admin_users</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;jhamrick&#39;</span><span class="p">,</span> <span class="s1">&#39;rgbkrk&#39;</span><span class="p">}</span>
+
+<span class="c1"># uses the default spawner</span>
+<span class="c1"># To use a different spawner, uncomment `spawner_class` and set to desired</span>
+<span class="c1"># spawner (e.g. SudoSpawner). Follow instructions for desired spawner</span>
+<span class="c1"># configuration.</span>
+<span class="c1"># c.JupyterHub.spawner_class = &#39;sudospawner.SudoSpawner&#39;</span>
+
+<span class="c1"># start single-user notebook servers in ~/assignments,</span>
+<span class="c1"># with ~/assignments/Welcome.ipynb as the default landing page</span>
+<span class="c1"># this config could also be put in</span>
+<span class="c1"># /etc/jupyter/jupyter_notebook_config.py</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Spawner</span><span class="o">.</span><span class="n">notebook_dir</span> <span class="o">=</span> <span class="s1">&#39;~/assignments&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Spawner</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--NotebookApp.default_url=/notebooks/Welcome.ipynb&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Using the GitHub Authenticator requires a few additional
+environment variable to be set prior to launching JupyterHub:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GITHUB_CLIENT_ID</span><span class="o">=</span>github_id
+<span class="nb">export</span> <span class="nv">GITHUB_CLIENT_SECRET</span><span class="o">=</span>github_secret
+<span class="nb">export</span> <span class="nv">OAUTH_CALLBACK_URL</span><span class="o">=</span>https://example.com/hub/oauth_callback
+<span class="nb">export</span> <span class="nv">CONFIGPROXY_AUTH_TOKEN</span><span class="o">=</span>super-secret
+<span class="c1"># append log output to log file /var/log/jupyterhub.log</span>
+jupyterhub -f /etc/jupyterhub/jupyterhub_config.py <span class="p">&amp;</span>&gt;&gt; /var/log/jupyterhub.log
+</pre></div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="config-examples.html" title="previous page">Configuration examples</a>
+    <a class='right-next' id="next-link" href="config-proxy.html" title="next page">Using a reverse proxy</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

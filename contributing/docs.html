@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Contributing Documentation &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Testing JupyterHub" href="tests.html" />
+    <link rel="prev" title="Setting up a development install" href="setup.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="community.html">Community communication channels</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="setup.html">Setting up a development install</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Contributing Documentation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="tests.html">Testing JupyterHub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="roadmap.html">The JupyterHub roadmap</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security.html">Reporting security issues in Jupyter or JupyterHub</a>
+              </li>
+          
+        
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#building-documentation-locally" class="nav-link">Building documentation locally</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#documentation-conventions" class="nav-link">Documentation conventions</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#pip-invocation" class="nav-link">pip invocation</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="contributing-documentation">
+<span id="contributing-docs"></span><h1>Contributing Documentation<a class="headerlink" href="#contributing-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Documentation is often more important than code. This page helps
+you get set up on how to contribute documentation to JupyterHub.</p>
+<div class="section" id="building-documentation-locally">
+<h2>Building documentation locally<a class="headerlink" href="#building-documentation-locally" title="Permalink to this headline">¶</a></h2>
+<p>We use <a class="reference external" href="http://sphinx-doc.org">sphinx</a> to build our documentation. It takes
+our documentation source files (written in <a class="reference external" href="https://daringfireball.net/projects/markdown/">markdown</a> or <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText</a> &amp;
+stored under the <code class="docutils literal notranslate"><span class="pre">docs/source</span></code> directory) and converts it into various
+formats for people to read. To make sure the documentation you write or
+change renders correctly, it is good practice to test it locally.</p>
+<ol class="arabic">
+<li><p>Make sure you have successfuly completed <a class="reference internal" href="setup.html#contributing-setup"><span class="std std-ref">Setting up a development install</span></a>.</p></li>
+<li><p>Install the packages required to build the docs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -r docs/requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p>Build the html version of the docs. This is the most commonly used
+output format, so verifying it renders as you should is usually good
+enough.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> docs
+make html
+</pre></div>
+</div>
+<p>This step will display any syntax or formatting errors in the documentation,
+along with the filename / line number in which they occurred. Fix them,
+and re-run the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> command to re-render the documentation.</p>
+</li>
+<li><p>View the rendered documentation by opening <code class="docutils literal notranslate"><span class="pre">build/html/index.html</span></code> in
+a web browser.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>On macOS, you can open a file from the terminal with <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">&lt;path-to-file&gt;</span></code>.
+On Linux, you can do the same with <code class="docutils literal notranslate"><span class="pre">xdg-open</span> <span class="pre">&lt;path-to-file&gt;</span></code>.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="documentation-conventions">
+<span id="contributing-docs-conventions"></span><h2>Documentation conventions<a class="headerlink" href="#documentation-conventions" title="Permalink to this headline">¶</a></h2>
+<p>This section lists various conventions we use in our documentation. This is a
+living document that grows over time, so feel free to add to it / change it!</p>
+<p>Our entire documentation does not yet fully conform to these conventions yet,
+so help in making it so would be appreciated!</p>
+<div class="section" id="pip-invocation">
+<h3><code class="docutils literal notranslate"><span class="pre">pip</span></code> invocation<a class="headerlink" href="#pip-invocation" title="Permalink to this headline">¶</a></h3>
+<p>There are many ways to invoke a <code class="docutils literal notranslate"><span class="pre">pip</span></code> command, we recommend the following
+approach:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip
+</pre></div>
+</div>
+<p>This invokes pip explicitly using the python3 binary that you are
+currently using. This is the <strong>recommended way</strong> to invoke pip
+in our documentation, since it is least likely to cause problems
+with python3 and pip being from different environments.</p>
+<p>For more information on how to invoke <code class="docutils literal notranslate"><span class="pre">pip</span></code> commands, see
+<a class="reference external" href="https://pip.pypa.io/en/stable/">the pip documentation</a>.</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="setup.html" title="previous page">Setting up a development install</a>
+    <a class='right-next' id="next-link" href="tests.html" title="next page">Testing JupyterHub</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

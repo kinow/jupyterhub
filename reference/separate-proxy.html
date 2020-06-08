@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Running proxy separately from the hub &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using JupyterHub’s REST API" href="rest.html" />
+    <link rel="prev" title="Writing a custom Proxy implementation" href="proxy.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="technical-overview.html">Technical Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="urls.html">JupyterHub URL scheme</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="websecurity.html">Security Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators.html">Authenticators</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners.html">Spawners</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services.html">Services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="proxy.html">Writing a custom Proxy implementation</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Running proxy separately from the hub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="rest.html">Using JupyterHub’s REST API</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="database.html">The Hub’s Database</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="templates.html">Working with templates and UI</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="../events/index.html">Eventlogging and Telemetry</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-user-env.html">Configuring user environments</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-examples.html">Configuration examples</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-ghoauth.html">Configure GitHub OAuth</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-proxy.html">Using a reverse proxy</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-sudo.html">Run JupyterHub without root privileges using sudo</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-reference.html">Configuration Reference</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#background" class="nav-link">Background</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#configuration-options" class="nav-link">Configuration options</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#proxy-configuration" class="nav-link">Proxy configuration</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#docker-image" class="nav-link">Docker image</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#see-also" class="nav-link">See also</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="running-proxy-separately-from-the-hub">
+<h1>Running proxy separately from the hub<a class="headerlink" href="#running-proxy-separately-from-the-hub" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>The thing which users directly connect to is the proxy, by default
+<code class="docutils literal notranslate"><span class="pre">configurable-http-proxy</span></code>.  The proxy either redirects users to the
+hub (for login and managing servers), or to their own single-user
+servers.  Thus, as long as the proxy stays running, access to existing
+servers continues, even if the hub itself restarts or goes down.</p>
+<p>When you first configure the hub, you may not even realize this
+because the proxy is automatically managed by the hub.  This is great
+for getting started and even most use, but everytime you restart the
+hub, all user connections also get restarted.  But it’s also simple to
+run the proxy as a service separate from the hub, so that you are free
+to reconfigure the hub while only interrupting users who are currently
+actively starting the hub.</p>
+<p>The default JupyterHub proxy is
+<a class="reference external" href="https://github.com/jupyterhub/configurable-http-proxy">configurable-http-proxy</a>,
+and that page has some docs.  If you are using a different proxy, such
+as Traefik, these instructions are probably not relevant to you.</p>
+</div>
+<div class="section" id="configuration-options">
+<h2>Configuration options<a class="headerlink" href="#configuration-options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">c.JupyterHub.cleanup_servers</span> <span class="pre">=</span> <span class="pre">False</span></code> should be set, which tells the
+hub to not stop servers when the hub restarts (this is useful even if
+you don’t run the proxy separately).</p>
+<p><code class="docutils literal notranslate"><span class="pre">c.ConfigurableHTTPProxy.should_start</span> <span class="pre">=</span> <span class="pre">False</span></code> should be set, which
+tells the hub that the proxy should not be started (because you start
+it yourself).</p>
+<p><code class="docutils literal notranslate"><span class="pre">c.ConfigurableHTTPProxy.auth_token</span> <span class="pre">=</span> <span class="pre">&quot;CONFIGPROXY_AUTH_TOKEN&quot;</span></code> should be set to a
+token for authenticating communication with the proxy.</p>
+<p><code class="docutils literal notranslate"><span class="pre">c.ConfigurableHTTPProxy.api_url</span> <span class="pre">=</span> <span class="pre">'http://localhost:8001'</span></code> should be
+set to the URL which the hub uses to connect <em>to the proxy’s API</em>.</p>
+</div>
+<div class="section" id="proxy-configuration">
+<h2>Proxy configuration<a class="headerlink" href="#proxy-configuration" title="Permalink to this headline">¶</a></h2>
+<p>You need to configure a service to start the proxy.  An example
+command line for this is <code class="docutils literal notranslate"><span class="pre">configurable-http-proxy</span> <span class="pre">--ip=127.0.0.1</span> <span class="pre">--port=8000</span> <span class="pre">--api-ip=127.0.0.1</span> <span class="pre">--api-port=8001</span> <span class="pre">--default-target=http://localhost:8081</span> <span class="pre">--error-target=http://localhost:8081/hub/error</span></code>.  (Details for how to
+do this is out of scope for this tutorial - for example it might be a
+systemd service on within another docker cotainer).  The proxy has no
+configuration files, all configuration is via the command line and
+environment variables.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--api-ip</span></code> and <code class="docutils literal notranslate"><span class="pre">--api-port</span></code> (which tells the proxy where to listen) should match the hub’s <code class="docutils literal notranslate"><span class="pre">ConfigurableHTTPProxy.api_url</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--ip</span></code>, <code class="docutils literal notranslate"><span class="pre">-port</span></code>, and other options configure the <em>user</em> connections to the proxy.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--default-target</span></code> and <code class="docutils literal notranslate"><span class="pre">--error-target</span></code> should point to the hub, and used when users navigate to the proxy originally.</p>
+<p>You must define the environment variable <code class="docutils literal notranslate"><span class="pre">CONFIGPROXY_AUTH_TOKEN</span></code> to
+match the token given to <code class="docutils literal notranslate"><span class="pre">c.ConfigurableHTTPProxy.auth_token</span></code>.</p>
+<p>You should check the <a class="reference external" href="https://github.com/jupyterhub/configurable-http-proxy">configurable-http-proxy
+options</a> to see
+what other options are needed, for example SSL options.  Note that
+these are configured in the hub if the hub is starting the proxy - you
+need to move the options to here.</p>
+</div>
+<div class="section" id="docker-image">
+<h2>Docker image<a class="headerlink" href="#docker-image" title="Permalink to this headline">¶</a></h2>
+<p>You can use <a class="reference external" href="https://hub.docker.com/r/jupyterhub/configurable-http-proxy/">jupyterhub configurable-http-proxy docker
+image</a>
+to run the proxy.</p>
+</div>
+<div class="section" id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/jupyterhub/configurable-http-proxy">jupyterhub configurable-http-proxy</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="proxy.html" title="previous page">Writing a custom Proxy implementation</a>
+    <a class='right-next' id="next-link" href="rest.html" title="next page">Using JupyterHub’s REST API</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

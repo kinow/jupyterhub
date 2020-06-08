@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Security Overview &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Authenticators" href="authenticators.html" />
+    <link rel="prev" title="JupyterHub URL scheme" href="urls.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="technical-overview.html">Technical Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="urls.html">JupyterHub URL scheme</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Security Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators.html">Authenticators</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners.html">Spawners</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services.html">Services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="proxy.html">Writing a custom Proxy implementation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="separate-proxy.html">Running proxy separately from the hub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="rest.html">Using JupyterHub’s REST API</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="database.html">The Hub’s Database</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="templates.html">Working with templates and UI</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="../events/index.html">Eventlogging and Telemetry</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-user-env.html">Configuring user environments</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-examples.html">Configuration examples</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-ghoauth.html">Configure GitHub OAuth</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-proxy.html">Using a reverse proxy</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-sudo.html">Run JupyterHub without root privileges using sudo</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-reference.html">Configuration Reference</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#semi-trusted-and-untrusted-users" class="nav-link">Semi-trusted and untrusted users</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#protect-users-from-each-other" class="nav-link">Protect users from each other</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#mitigate-security-issues" class="nav-link">Mitigate security issues</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#enable-subdomains" class="nav-link">Enable subdomains</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#disable-user-config" class="nav-link">Disable user config</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#prevent-spawners-from-evaluating-shell-configuration-files" class="nav-link">Prevent spawners from evaluating shell configuration files</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#isolate-packages-using-virtualenv" class="nav-link">Isolate packages using virtualenv</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#encrypt-internal-connections-with-ssl-tls" class="nav-link">Encrypt internal connections with SSL/TLS</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#security-audits" class="nav-link">Security audits</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#vulnerability-reporting" class="nav-link">Vulnerability reporting</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="security-overview">
+<h1>Security Overview<a class="headerlink" href="#security-overview" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>Security Overview</strong> section helps you learn about:</p>
+<ul class="simple">
+<li><p>the design of JupyterHub with respect to web security</p></li>
+<li><p>the semi-trusted user</p></li>
+<li><p>the available mitigations to protect untrusted users from each other</p></li>
+<li><p>the value of periodic security audits.</p></li>
+</ul>
+<p>This overview also helps you obtain a deeper understanding of how JupyterHub
+works.</p>
+<div class="section" id="semi-trusted-and-untrusted-users">
+<h2>Semi-trusted and untrusted users<a class="headerlink" href="#semi-trusted-and-untrusted-users" title="Permalink to this headline">¶</a></h2>
+<p>JupyterHub is designed to be a <em>simple multi-user server for modestly sized
+groups</em> of <strong>semi-trusted</strong> users. While the design reflects serving semi-trusted
+users, JupyterHub is not necessarily unsuitable for serving <strong>untrusted</strong> users.</p>
+<p>Using JupyterHub with <strong>untrusted</strong> users does mean more work by the
+administrator. Much care is required to secure a Hub, with extra caution on
+protecting users from each other as the Hub is serving untrusted users.</p>
+<p>One aspect of JupyterHub’s <em>design simplicity</em> for <strong>semi-trusted</strong> users is that
+the Hub and single-user servers are placed in a <em>single domain</em>, behind a
+<a class="reference external" href="https://github.com/jupyterhub/configurable-http-proxy"><em>proxy</em></a>. If the Hub is serving untrusted
+users, many of the web’s cross-site protections are not applied between
+single-user servers and the Hub, or between single-user servers and each
+other, since browsers see the whole thing (proxy, Hub, and single user
+servers) as a single website (i.e. single domain).</p>
+</div>
+<div class="section" id="protect-users-from-each-other">
+<h2>Protect users from each other<a class="headerlink" href="#protect-users-from-each-other" title="Permalink to this headline">¶</a></h2>
+<p>To protect users from each other, a user must <strong>never</strong> be able to write arbitrary
+HTML and serve it to another user on the Hub’s domain. JupyterHub’s
+authentication setup prevents a user writing arbitrary HTML and serving it to
+another user because only the owner of a given single-user notebook server is
+allowed to view user-authored pages served by the given single-user notebook
+server.</p>
+<p>To protect all users from each other, JupyterHub administrators must
+ensure that:</p>
+<ul class="simple">
+<li><p>A user <strong>does not have permission</strong> to modify their single-user notebook server,
+including:</p>
+<ul>
+<li><p>A user <strong>may not</strong> install new packages in the Python environment that runs
+their single-user server.</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> is used to resolve the single-user executable (instead of
+using an absolute path), a user <strong>may not</strong> create new files in any <code class="docutils literal notranslate"><span class="pre">PATH</span></code>
+directory that precedes the directory containing <code class="docutils literal notranslate"><span class="pre">jupyterhub-singleuser</span></code>.</p></li>
+<li><p>A user may not modify environment variables (e.g. PATH, PYTHONPATH) for
+their single-user server.</p></li>
+</ul>
+</li>
+<li><p>A user <strong>may not</strong> modify the configuration of the notebook server
+(the <code class="docutils literal notranslate"><span class="pre">~/.jupyter</span></code> or <code class="docutils literal notranslate"><span class="pre">JUPYTER_CONFIG_DIR</span></code> directory).</p></li>
+</ul>
+<p>If any additional services are run on the same domain as the Hub, the services
+<strong>must never</strong> display user-authored HTML that is neither <em>sanitized</em> nor <em>sandboxed</em>
+(e.g. IFramed) to any user that lacks authentication as the author of a file.</p>
+</div>
+<div class="section" id="mitigate-security-issues">
+<h2>Mitigate security issues<a class="headerlink" href="#mitigate-security-issues" title="Permalink to this headline">¶</a></h2>
+<p>Several approaches to mitigating these issues with configuration
+options provided by JupyterHub include:</p>
+<div class="section" id="enable-subdomains">
+<h3>Enable subdomains<a class="headerlink" href="#enable-subdomains" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub provides the ability to run single-user servers on their own
+subdomains. This means the cross-origin protections between servers has the
+desired effect, and user servers and the Hub are protected from each other. A
+user’s single-user server will be at <code class="docutils literal notranslate"><span class="pre">username.jupyter.mydomain.com</span></code>. This also
+requires all user subdomains to point to the same address, which is most easily
+accomplished with wildcard DNS. Since this spreads the service across multiple
+domains, you will need wildcard SSL, as well. Unfortunately, for many
+institutional domains, wildcard DNS and SSL are not available. <strong>If you do plan
+to serve untrusted users, enabling subdomains is highly encouraged</strong>, as it
+resolves the cross-site issues.</p>
+</div>
+<div class="section" id="disable-user-config">
+<h3>Disable user config<a class="headerlink" href="#disable-user-config" title="Permalink to this headline">¶</a></h3>
+<p>If subdomains are not available or not desirable, JupyterHub provides a
+configuration option <code class="docutils literal notranslate"><span class="pre">Spawner.disable_user_config</span></code>, which can be set to prevent
+the user-owned configuration files from being loaded. After implementing this
+option, PATHs and package installation and PATHs are the other things that the
+admin must enforce.</p>
+</div>
+<div class="section" id="prevent-spawners-from-evaluating-shell-configuration-files">
+<h3>Prevent spawners from evaluating shell configuration files<a class="headerlink" href="#prevent-spawners-from-evaluating-shell-configuration-files" title="Permalink to this headline">¶</a></h3>
+<p>For most Spawners, <code class="docutils literal notranslate"><span class="pre">PATH</span></code> is not something users can influence, but care should
+be taken to ensure that the Spawner does <em>not</em> evaluate shell configuration
+files prior to launching the server.</p>
+</div>
+<div class="section" id="isolate-packages-using-virtualenv">
+<h3>Isolate packages using virtualenv<a class="headerlink" href="#isolate-packages-using-virtualenv" title="Permalink to this headline">¶</a></h3>
+<p>Package isolation is most easily handled by running the single-user server in
+a virtualenv with disabled system-site-packages. The user should not have
+permission to install packages into this environment.</p>
+<p>It is important to note that the control over the environment only affects the
+single-user server, and not the environment(s) in which the user’s kernel(s)
+may run. Installing additional packages in the kernel environment does not
+pose additional risk to the web application’s security.</p>
+</div>
+<div class="section" id="encrypt-internal-connections-with-ssl-tls">
+<h3>Encrypt internal connections with SSL/TLS<a class="headerlink" href="#encrypt-internal-connections-with-ssl-tls" title="Permalink to this headline">¶</a></h3>
+<p>By default, all communication on the server, between the proxy, hub, and single
+-user notebooks is performed unencrypted. Setting the <code class="docutils literal notranslate"><span class="pre">internal_ssl</span></code> flag in
+<code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> secures the aforementioned routes. Turning this
+feature on does require that the enabled <code class="docutils literal notranslate"><span class="pre">Spawner</span></code> can use the certificates
+generated by the <code class="docutils literal notranslate"><span class="pre">Hub</span></code> (the default <code class="docutils literal notranslate"><span class="pre">LocalProcessSpawner</span></code> can, for instance).</p>
+<p>It is also important to note that this encryption <strong>does not</strong> (yet) cover the
+<code class="docutils literal notranslate"><span class="pre">zmq</span> <span class="pre">tcp</span></code> sockets between the Notebook client and kernel. While users cannot
+submit arbitrary commands to another user’s kernel, they can bind to these
+sockets and listen. When serving untrusted users, this eavesdropping can be
+mitigated by setting <code class="docutils literal notranslate"><span class="pre">KernelManager.transport</span></code> to <code class="docutils literal notranslate"><span class="pre">ipc</span></code>. This applies standard
+Unix permissions to the communication sockets thereby restricting
+communication to the socket owner. The <code class="docutils literal notranslate"><span class="pre">internal_ssl</span></code> option will eventually
+extend to securing the <code class="docutils literal notranslate"><span class="pre">tcp</span></code> sockets as well.</p>
+</div>
+</div>
+<div class="section" id="security-audits">
+<h2>Security audits<a class="headerlink" href="#security-audits" title="Permalink to this headline">¶</a></h2>
+<p>We recommend that you do periodic reviews of your deployment’s security. It’s
+good practice to keep JupyterHub, configurable-http-proxy, and nodejs
+versions up to date.</p>
+<p>A handy website for testing your deployment is
+<a class="reference external" href="https://www.ssllabs.com/ssltest/analyze.html">Qualsys’ SSL analyzer tool</a>.</p>
+</div>
+<div class="section" id="vulnerability-reporting">
+<h2>Vulnerability reporting<a class="headerlink" href="#vulnerability-reporting" title="Permalink to this headline">¶</a></h2>
+<p>If you believe you’ve found a security vulnerability in JupyterHub, or any
+Jupyter project, please report it to
+<a class="reference external" href="mailto:security&#37;&#52;&#48;iypthon&#46;org">security<span>&#64;</span>ipython<span>&#46;</span>org</a>. If you prefer to encrypt
+your security reports, you can use <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/_downloads/ipython_security.asc">this PGP public
+key</a>.</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="urls.html" title="previous page">JupyterHub URL scheme</a>
+    <a class='right-next' id="next-link" href="authenticators.html" title="next page">Authenticators</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

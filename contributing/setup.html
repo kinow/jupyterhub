@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Setting up a development install &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing Documentation" href="docs.html" />
+    <link rel="prev" title="Community communication channels" href="community.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="community.html">Community communication channels</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Setting up a development install</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="docs.html">Contributing Documentation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="tests.html">Testing JupyterHub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="roadmap.html">The JupyterHub roadmap</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security.html">Reporting security issues in Jupyter or JupyterHub</a>
+              </li>
+          
+        
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#system-requirements" class="nav-link">System requirements</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#install-python" class="nav-link">Install Python</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#install-nodejs" class="nav-link">Install nodejs</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#install-git" class="nav-link">Install git</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">Setting up a development install</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#using-dummyauthenticator-simplelocalprocessspawner" class="nav-link">Using DummyAuthenticator & SimpleLocalProcessSpawner</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#troubleshooting" class="nav-link">Troubleshooting</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#lessc-not-found" class="nav-link">lessc not found</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="setting-up-a-development-install">
+<span id="contributing-setup"></span><h1>Setting up a development install<a class="headerlink" href="#setting-up-a-development-install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="system-requirements">
+<h2>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h2>
+<p>JupyterHub can only run on MacOS or Linux operating systems. If you are
+using Windows, we recommend using <a class="reference external" href="https://virtualbox.org">VirtualBox</a>
+or a similar system to run <a class="reference external" href="https://ubuntu.com">Ubuntu Linux</a> for
+development.</p>
+<div class="section" id="install-python">
+<h3>Install Python<a class="headerlink" href="#install-python" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub is written in the <a class="reference external" href="https://python.org">Python</a> programming language, and
+requires you have at least version 3.5 installed locally. If you haven’t
+installed Python before, the recommended way to install it is to use
+<a class="reference external" href="https://conda.io/miniconda.html">miniconda</a>. Remember to get the ‘Python 3’ version,
+and <strong>not</strong> the ‘Python 2’ version!</p>
+</div>
+<div class="section" id="install-nodejs">
+<h3>Install nodejs<a class="headerlink" href="#install-nodejs" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">configurable-http-proxy</span></code>, the default proxy implementation for
+JupyterHub, is written in Javascript to run on <a class="reference external" href="https://nodejs.org/en/">NodeJS</a>. If you have not installed nodejs before, we
+recommend installing it in the <code class="docutils literal notranslate"><span class="pre">miniconda</span></code> environment you set up for
+Python. You can do so with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">nodejs</span></code>.</p>
+</div>
+<div class="section" id="install-git">
+<h3>Install git<a class="headerlink" href="#install-git" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub uses <a class="reference external" href="https://git-scm.com">git</a> &amp; <a class="reference external" href="https://github.com">GitHub</a>
+for development &amp; collaboration. You need to <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">install git</a> to work on
+JupyterHub. We also recommend getting a free account on GitHub.com.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Setting up a development install<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>When developing JupyterHub, you need to make changes to the code &amp; see
+their effects quickly. You need to do a developer install to make that
+happen.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide does not attempt to dictate <em>how</em> development
+environements should be isolated since that is a personal preference and can
+be achieved in many ways, for example <code class="docutils literal notranslate"><span class="pre">tox</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code>, <code class="docutils literal notranslate"><span class="pre">docker</span></code>, etc. See this
+<a class="reference external" href="https://discourse.jupyter.org/t/thoughts-on-using-tox/3497">forum thread</a> for
+a more detailed discussion.</p>
+</div>
+<ol class="arabic">
+<li><p>Clone the <a class="reference external" href="https://github.com/jupyterhub/jupyterhub">JupyterHub git repository</a>
+to your computer.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/jupyterhub/jupyterhub
+<span class="nb">cd</span> jupyterhub
+</pre></div>
+</div>
+</li>
+<li><p>Make sure the <code class="docutils literal notranslate"><span class="pre">python</span></code> you installed and the <code class="docutils literal notranslate"><span class="pre">npm</span></code> you installed
+are available to you on the command line.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -V
+</pre></div>
+</div>
+<p>This should return a version number greater than or equal to 3.5.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm -v
+</pre></div>
+</div>
+<p>This should return a version number greater than or equal to 5.0.</p>
+</li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">configurable-http-proxy</span></code>. This is required to run
+JupyterHub.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install -g configurable-http-proxy
+</pre></div>
+</div>
+<p>If you get an error that says <code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">EACCES:</span> <span class="pre">permission</span> <span class="pre">denied</span></code>,
+you might need to prefix the command with <code class="docutils literal notranslate"><span class="pre">sudo</span></code>. If you do not
+have access to sudo, you may instead run the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install configurable-http-proxy
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/node_modules/.bin
+</pre></div>
+</div>
+<p>The second line needs to be run every time you open a new terminal.</p>
+</li>
+<li><p>Install the python packages required for JupyterHub development.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -r dev-requirements.txt
+python3 -m pip install -r requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p>Setup a database.</p>
+<p>The default database engine is <code class="docutils literal notranslate"><span class="pre">sqlite</span></code> so if you are just trying
+to get up and running quickly for local development that should be
+available via <a class="reference external" href="https://docs.python.org/3.5/library/sqlite3.html">python</a>.
+See <a class="reference internal" href="../reference/database.html"><span class="doc">The Hub’s Database</span></a> for details on other supported databases.</p>
+</li>
+<li><p>Install the development version of JupyterHub. This lets you edit
+JupyterHub code in a text editor &amp; restart the JupyterHub process to
+see your code changes immediately.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --editable .
+</pre></div>
+</div>
+</li>
+<li><p>You are now ready to start JupyterHub!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyterhub
+</pre></div>
+</div>
+</li>
+<li><p>You can access JupyterHub from your browser at
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8000</span></code> now.</p></li>
+</ol>
+<p>Happy developing!</p>
+</div>
+<div class="section" id="using-dummyauthenticator-simplelocalprocessspawner">
+<h2>Using DummyAuthenticator &amp; SimpleLocalProcessSpawner<a class="headerlink" href="#using-dummyauthenticator-simplelocalprocessspawner" title="Permalink to this headline">¶</a></h2>
+<p>To simplify testing of JupyterHub, it’s helpful to use
+<a class="reference internal" href="../api/auth.html#jupyterhub.auth.DummyAuthenticator" title="jupyterhub.auth.DummyAuthenticator"><code class="xref py py-class docutils literal notranslate"><span class="pre">DummyAuthenticator</span></code></a> instead of the default JupyterHub
+authenticator and SimpleLocalProcessSpawner instead of the default spawner.</p>
+<p>There is a sample configuration file that does this in
+<code class="docutils literal notranslate"><span class="pre">testing/jupyterhub_config.py</span></code>. To launch jupyterhub with this
+configuration:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyterhub -f testing/jupyterhub_config.py
+</pre></div>
+</div>
+<p>The default JupyterHub <a class="reference external" href="https://jupyterhub.readthedocs.io/en/stable/reference/authenticators.html#the-default-pam-authenticator">authenticator</a>
+&amp; <a class="reference external" href="https://jupyterhub.readthedocs.io/en/stable/api/spawner.html#localprocessspawner">spawner</a>
+require your system to have user accounts for each user you want to log in to
+JupyterHub as.</p>
+<p>DummyAuthenticator allows you to log in with any username &amp; password,
+while SimpleLocalProcessSpawner allows you to start servers without having to
+create a unix user for each JupyterHub user. Together, these make it
+much easier to test JupyterHub.</p>
+<p>Tip: If you are working on parts of JupyterHub that are common to all
+authenticators &amp; spawners, we recommend using both DummyAuthenticator &amp;
+SimpleLocalProcessSpawner. If you are working on just authenticator related
+parts, use only SimpleLocalProcessSpawner. Similarly, if you are working on
+just spawner related parts, use only DummyAuthenticator.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>This section lists common ways setting up your development environment may
+fail, and how to fix them. Please add to the list if you encounter yet
+another way it can fail!</p>
+<div class="section" id="lessc-not-found">
+<h3><code class="docutils literal notranslate"><span class="pre">lessc</span></code> not found<a class="headerlink" href="#lessc-not-found" title="Permalink to this headline">¶</a></h3>
+<p>If the <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--editable</span> <span class="pre">.</span></code> command fails and complains about
+<code class="docutils literal notranslate"><span class="pre">lessc</span></code> being unavailable, you may need to explicitly install some
+additional JavaScript dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install
+</pre></div>
+</div>
+<p>This will fetch client-side JavaScript dependencies necessary to compile
+CSS.</p>
+<p>You may also need to manually update JavaScript and CSS after some
+development updates, with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 setup.py js    <span class="c1"># fetch updated client-side js</span>
+python3 setup.py css   <span class="c1"># recompile CSS from LESS sources</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="community.html" title="previous page">Community communication channels</a>
+    <a class='right-next' id="next-link" href="docs.html" title="next page">Contributing Documentation</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Technical Reference &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Technical Overview" href="technical-overview.html" />
+    <link rel="prev" title="Institutional FAQ" href="../getting-started/institutional-faq.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="technical-overview.html">Technical Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="urls.html">JupyterHub URL scheme</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="websecurity.html">Security Overview</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators.html">Authenticators</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners.html">Spawners</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services.html">Services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="proxy.html">Writing a custom Proxy implementation</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="separate-proxy.html">Running proxy separately from the hub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="rest.html">Using JupyterHub’s REST API</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="database.html">The Hub’s Database</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="templates.html">Working with templates and UI</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="../events/index.html">Eventlogging and Telemetry</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-user-env.html">Configuring user environments</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-examples.html">Configuration examples</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-ghoauth.html">Configure GitHub OAuth</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-proxy.html">Using a reverse proxy</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-sudo.html">Run JupyterHub without root privileges using sudo</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="config-reference.html">Configuration Reference</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="technical-reference">
+<h1>Technical Reference<a class="headerlink" href="#technical-reference" title="Permalink to this headline">¶</a></h1>
+<p>This section covers more of the details of the JupyterHub architecture, as well as
+what happens under-the-hood when you deploy and configure your JupyterHub.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="technical-overview.html">Technical Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="technical-overview.html#the-subsystems-hub-proxy-single-user-notebook-server">The Subsystems: Hub, Proxy, Single-User Notebook Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technical-overview.html#how-the-subsystems-interact">How the Subsystems Interact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technical-overview.html#the-process-from-jupyterhub-access-to-user-login">The Process from JupyterHub Access to User Login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technical-overview.html#default-behavior">Default Behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technical-overview.html#customizing-jupyterhub">Customizing JupyterHub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="urls.html">JupyterHub URL scheme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#id1"><code class="docutils literal notranslate"><span class="pre">/</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#hub"><code class="docutils literal notranslate"><span class="pre">/hub/</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#hub-home"><code class="docutils literal notranslate"><span class="pre">/hub/home</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#hub-login"><code class="docutils literal notranslate"><span class="pre">/hub/login</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#hub-logout"><code class="docutils literal notranslate"><span class="pre">/hub/logout</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#user-username-servername"><code class="docutils literal notranslate"><span class="pre">/user/:username[/:servername]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#hub-user-username-servername"><code class="docutils literal notranslate"><span class="pre">/hub/user/:username[/:servername]</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#user-redirect"><code class="docutils literal notranslate"><span class="pre">/user-redirect/...</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#spawning">Spawning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#hub-token"><code class="docutils literal notranslate"><span class="pre">/hub/token</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html#hub-admin"><code class="docutils literal notranslate"><span class="pre">/hub/admin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="websecurity.html">Security Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="websecurity.html#semi-trusted-and-untrusted-users">Semi-trusted and untrusted users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websecurity.html#protect-users-from-each-other">Protect users from each other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websecurity.html#mitigate-security-issues">Mitigate security issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websecurity.html#security-audits">Security audits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websecurity.html#vulnerability-reporting">Vulnerability reporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authenticators.html">Authenticators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authenticators.html#the-default-pam-authenticator">The default PAM Authenticator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators.html#the-oauthenticator">The OAuthenticator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators.html#the-dummy-authenticator">The Dummy Authenticator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators.html#additional-authenticators">Additional Authenticators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators.html#technical-overview-of-authentication">Technical Overview of Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators.html#pre-spawn-start-and-post-spawn-stop-hooks">pre_spawn_start and post_spawn_stop hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticators.html#jupyterhub-as-an-oauth-provider">JupyterHub as an OAuth provider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spawners.html">Spawners</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spawners.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spawners.html#spawner-control-methods">Spawner control methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spawners.html#spawner-state">Spawner state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spawners.html#spawner-options-form">Spawner options form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spawners.html#writing-a-custom-spawner">Writing a custom spawner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spawners.html#spawners-resource-limits-and-guarantees-optional">Spawners, resource limits, and guarantees (Optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#definition-of-a-service">Definition of a Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#properties-of-a-service">Properties of a Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#hub-managed-services">Hub-Managed Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#launching-a-hub-managed-service">Launching a Hub-Managed Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#externally-managed-services">Externally-Managed Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#writing-your-own-services">Writing your own Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#hub-authentication-and-services">Hub Authentication and Services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="proxy.html">Writing a custom Proxy implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="proxy.html#subclassing-proxy">Subclassing Proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy.html#starting-and-stopping-the-proxy">Starting and stopping the proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy.html#encryption">Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy.html#routes">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy.html#note-on-activity-tracking">Note on activity tracking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="separate-proxy.html">Running proxy separately from the hub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="separate-proxy.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="separate-proxy.html#configuration-options">Configuration options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="separate-proxy.html#proxy-configuration">Proxy configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="separate-proxy.html#docker-image">Docker image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="separate-proxy.html#see-also">See also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rest.html">Using JupyterHub’s REST API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#what-you-can-do-with-the-api">What you can do with the API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#create-an-api-token">Create an API token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#add-api-tokens-to-the-config-file">Add API tokens to the config file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#make-an-api-request">Make an API request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#enabling-users-to-spawn-multiple-named-servers-via-the-api">Enabling users to spawn multiple named-servers via the API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rest.html#learn-more-about-the-api">Learn more about the API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">The Hub’s Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database.html#default-sqlite-database">Default SQLite database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#using-an-rdbms-postgresql-mysql">Using an RDBMS (PostgreSQL, MySQL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html#notes-and-tips">Notes and Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Working with templates and UI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#custom-templates">Custom Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#extending-templates">Extending Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#page-announcements">Page Announcements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">Eventlogging and Telemetry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../events/index.html#how-to-emit-events">How to emit events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events/index.html#event-schemas">Event schemas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config-user-env.html">Configuring user environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config-user-env.html#installing-packages">Installing packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-user-env.html#configuring-jupyter-and-ipython">Configuring Jupyter and IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-user-env.html#installing-kernelspecs">Installing kernelspecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-user-env.html#multi-user-hosts-vs-containers">Multi-user hosts vs. Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-user-env.html#named-servers">Named servers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config-examples.html">Configuration examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config-ghoauth.html">Configure GitHub OAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config-proxy.html">Using a reverse proxy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config-proxy.html#nginx">nginx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-proxy.html#apache">Apache</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config-sudo.html">Run JupyterHub without root privileges using <code class="docutils literal notranslate"><span class="pre">sudo</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#create-a-user">Create a user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#set-up-sudospawner">Set up sudospawner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#edit-etc-sudoers">Edit <code class="docutils literal notranslate"><span class="pre">/etc/sudoers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#test-sudo-setup">Test <code class="docutils literal notranslate"><span class="pre">sudo</span></code> setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#enable-pam-for-non-root">Enable PAM for non-root</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#test-that-pam-works">Test that PAM works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#make-a-directory-for-jupyterhub">Make a directory for JupyterHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#start-jupyterhub">Start jupyterhub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#troubleshooting-selinux">Troubleshooting: SELinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-sudo.html#troubleshooting-pam-session-errors">Troubleshooting: PAM session errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config-reference.html">Configuration Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config-reference.html#jupyterhub-configuration">JupyterHub configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config-reference.html#jupyterhub-help-command-output">JupyterHub help command output</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../getting-started/institutional-faq.html" title="previous page">Institutional FAQ</a>
+    <a class='right-next' id="next-link" href="technical-overview.html" title="next page">Technical Overview</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

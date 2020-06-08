@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Authentication and User Basics &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Spawners and single-user notebook servers" href="spawners-basics.html" />
+    <link rel="prev" title="Security settings" href="security-basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="config-basics.html">Configuration Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="networking-basics.html">Networking basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security-basics.html">Security settings</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Authentication and User Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners-basics.html">Spawners and single-user notebook servers</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services-basics.html">External services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="faq.html">Frequently asked questions</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="institutional-faq.html">Institutional FAQ</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#create-a-whitelist-of-users" class="nav-link">Create a whitelist of users</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#configure-admins-admin-users" class="nav-link">Configure admins (admin_users)</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#give-admin-access-to-other-users-notebook-servers-admin-access" class="nav-link">Give admin access to other users’ notebook servers (admin_access)</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#add-or-remove-users-from-the-hub" class="nav-link">Add or remove users from the Hub</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#use-localauthenticator-to-create-system-users" class="nav-link">Use LocalAuthenticator to create system users</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#use-oauthenticator-to-support-oauth-with-popular-service-providers" class="nav-link">Use OAuthenticator to support OAuth with popular service providers</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#use-dummyauthenticator-for-testing" class="nav-link">Use DummyAuthenticator for testing</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="authentication-and-user-basics">
+<h1>Authentication and User Basics<a class="headerlink" href="#authentication-and-user-basics" title="Permalink to this headline">¶</a></h1>
+<p>The default Authenticator uses <a class="reference external" href="https://en.wikipedia.org/wiki/Pluggable_authentication_module">PAM</a> to authenticate system users with
+their username and password. With the default Authenticator, any user
+with an account and password on the system will be allowed to login.</p>
+<div class="section" id="create-a-whitelist-of-users">
+<h2>Create a whitelist of users<a class="headerlink" href="#create-a-whitelist-of-users" title="Permalink to this headline">¶</a></h2>
+<p>You can restrict which users are allowed to login with a whitelist,
+<code class="docutils literal notranslate"><span class="pre">Authenticator.whitelist</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">whitelist</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mal&#39;</span><span class="p">,</span> <span class="s1">&#39;zoe&#39;</span><span class="p">,</span> <span class="s1">&#39;inara&#39;</span><span class="p">,</span> <span class="s1">&#39;kaylee&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Users in the whitelist are added to the Hub database when the Hub is
+started.</p>
+</div>
+<div class="section" id="configure-admins-admin-users">
+<h2>Configure admins (<code class="docutils literal notranslate"><span class="pre">admin_users</span></code>)<a class="headerlink" href="#configure-admins-admin-users" title="Permalink to this headline">¶</a></h2>
+<p>Admin users of JupyterHub, <code class="docutils literal notranslate"><span class="pre">admin_users</span></code>, can add and remove users from
+the user <code class="docutils literal notranslate"><span class="pre">whitelist</span></code>. <code class="docutils literal notranslate"><span class="pre">admin_users</span></code> can take actions on other users’
+behalf, such as stopping and restarting their servers.</p>
+<p>A set of initial admin users, <code class="docutils literal notranslate"><span class="pre">admin_users</span></code> can configured be as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">admin_users</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mal&#39;</span><span class="p">,</span> <span class="s1">&#39;zoe&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Users in the admin list are automatically added to the user <code class="docutils literal notranslate"><span class="pre">whitelist</span></code>,
+if they are not already present.</p>
+<p>Each authenticator may have different ways of determining whether a user is an
+administrator. By default JupyterHub use the PAMAuthenticator which provide the
+<code class="docutils literal notranslate"><span class="pre">admin_groups</span></code> option and can determine administrator status base on a user
+groups. For example we can let any users in the <code class="docutils literal notranslate"><span class="pre">wheel</span></code> group be admin:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">PAMAuthenticator</span><span class="o">.</span><span class="n">admin_groups</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wheel&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="give-admin-access-to-other-users-notebook-servers-admin-access">
+<h2>Give admin access to other users’ notebook servers (<code class="docutils literal notranslate"><span class="pre">admin_access</span></code>)<a class="headerlink" href="#give-admin-access-to-other-users-notebook-servers-admin-access" title="Permalink to this headline">¶</a></h2>
+<p>Since the default <code class="docutils literal notranslate"><span class="pre">JupyterHub.admin_access</span></code> setting is False, the admins
+do not have permission to log in to the single user notebook servers
+owned by <em>other users</em>. If <code class="docutils literal notranslate"><span class="pre">JupyterHub.admin_access</span></code> is set to True,
+then admins have permission to log in <em>as other users</em> on their
+respective machines, for debugging. <strong>As a courtesy, you should make
+sure your users know if admin_access is enabled.</strong></p>
+</div>
+<div class="section" id="add-or-remove-users-from-the-hub">
+<h2>Add or remove users from the Hub<a class="headerlink" href="#add-or-remove-users-from-the-hub" title="Permalink to this headline">¶</a></h2>
+<p>Users can be added to and removed from the Hub via either the admin
+panel or the REST API. When a user is <strong>added</strong>, the user will be
+automatically added to the whitelist and database. Restarting the Hub
+will not require manually updating the whitelist in your config file,
+as the users will be loaded from the database.</p>
+<p>After starting the Hub once, it is not sufficient to <strong>remove</strong> a user
+from the whitelist in your config file. You must also remove the user
+from the Hub’s database, either by deleting the user from JupyterHub’s
+admin page, or you can clear the <code class="docutils literal notranslate"><span class="pre">jupyterhub.sqlite</span></code> database and start
+fresh.</p>
+</div>
+<div class="section" id="use-localauthenticator-to-create-system-users">
+<h2>Use LocalAuthenticator to create system users<a class="headerlink" href="#use-localauthenticator-to-create-system-users" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">LocalAuthenticator</span></code> is a special kind of authenticator that has
+the ability to manage users on the local system. When you try to add a
+new user to the Hub, a <code class="docutils literal notranslate"><span class="pre">LocalAuthenticator</span></code> will check if the user
+already exists. If you set the configuration value, <code class="docutils literal notranslate"><span class="pre">create_system_users</span></code>,
+to <code class="docutils literal notranslate"><span class="pre">True</span></code> in the configuration file, the <code class="docutils literal notranslate"><span class="pre">LocalAuthenticator</span></code> has
+the privileges to add users to the system. The setting in the config
+file is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">LocalAuthenticator</span><span class="o">.</span><span class="n">create_system_users</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Adding a user to the Hub that doesn’t already exist on the system will
+result in the Hub creating that user via the system <code class="docutils literal notranslate"><span class="pre">adduser</span></code> command
+line tool. This option is typically used on hosted deployments of
+JupyterHub, to avoid the need to manually create all your users before
+launching the service. This approach is not recommended when running
+JupyterHub in situations where JupyterHub users map directly onto the
+system’s UNIX users.</p>
+</div>
+<div class="section" id="use-oauthenticator-to-support-oauth-with-popular-service-providers">
+<h2>Use OAuthenticator to support OAuth with popular service providers<a class="headerlink" href="#use-oauthenticator-to-support-oauth-with-popular-service-providers" title="Permalink to this headline">¶</a></h2>
+<p>JupyterHub’s <a class="reference external" href="https://github.com/jupyterhub/oauthenticator">OAuthenticator</a> currently supports the following
+popular services:</p>
+<ul class="simple">
+<li><p>Auth0</p></li>
+<li><p>Bitbucket</p></li>
+<li><p>CILogon</p></li>
+<li><p>GitHub</p></li>
+<li><p>GitLab</p></li>
+<li><p>Globus</p></li>
+<li><p>Google</p></li>
+<li><p>MediaWiki</p></li>
+<li><p>Okpy</p></li>
+<li><p>OpenShift</p></li>
+</ul>
+<p>A generic implementation, which you can use for OAuth authentication
+with any provider, is also available.</p>
+</div>
+<div class="section" id="use-dummyauthenticator-for-testing">
+<h2>Use DummyAuthenticator for testing<a class="headerlink" href="#use-dummyauthenticator-for-testing" title="Permalink to this headline">¶</a></h2>
+<p>The :class:<code class="docutils literal notranslate"><span class="pre">~jupyterhub.auth.DummyAuthenticator</span></code> is a simple authenticator that
+allows for any username/password unless if a global password has been set. If
+set, it will allow for any username as long as the correct password is provided.
+To set a global password, add this to the config file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">DummyAuthenticator</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;some_password&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="security-basics.html" title="previous page">Security settings</a>
+    <a class='right-next' id="next-link" href="spawners-basics.html" title="next page">Spawners and single-user notebook servers</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,1215 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Changelog &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JupyterHub API" href="api/index.html" />
+    <link rel="prev" title="Upgrading JupyterHub" href="admin/upgrading.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="index.html">
+      <img src="_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="troubleshooting.html">Troubleshooting</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="admin/upgrading.html">Upgrading JupyterHub</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Changelog</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#unreleased" class="nav-link">Unreleased</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">1.1</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id2" class="nav-link">1.1.0 2020-01-17</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#new" class="nav-link">New</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#fixes" class="nav-link">Fixes</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#maintenance" class="nav-link">Maintenance</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">1.0</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">1.0.0 2019-05-03</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#major-new-features" class="nav-link">Major new features</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#new-features" class="nav-link">New features</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#changes" class="nav-link">Changes</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#fixed" class="nav-link">Fixed</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#development-changes" class="nav-link">Development changes</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id5" class="nav-link">0.9</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id6" class="nav-link">0.9.6 2019-04-01</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id7" class="nav-link">0.9.4 2018-09-24</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">0.9.3 2018-09-12</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id9" class="nav-link">0.9.2 2018-08-10</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id10" class="nav-link">0.9.1 2018-07-04</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id11" class="nav-link">0.9.0 2018-06-15</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#changed" class="nav-link">Changed</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#added" class="nav-link">Added</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id12" class="nav-link">Fixed</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id13" class="nav-link">0.8</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id14" class="nav-link">0.8.1 2017-11-07</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id15" class="nav-link">Added</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id16" class="nav-link">Fixed</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id17" class="nav-link">0.8.0 2017-10-03</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id18" class="nav-link">Added</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id19" class="nav-link">Changed</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id20" class="nav-link">Fixed</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#removed" class="nav-link">Removed</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id21" class="nav-link">0.7</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id22" class="nav-link">0.7.2 - 2017-01-09</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id23" class="nav-link">Added</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id24" class="nav-link">Fixed</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id25" class="nav-link">0.7.1 - 2017-01-02</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id26" class="nav-link">Added</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id27" class="nav-link">Fixed</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id28" class="nav-link">0.7.0 - 2016-12-2</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id29" class="nav-link">Added</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id30" class="nav-link">Changed</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id31" class="nav-link">Fixed</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id32" class="nav-link">Removed</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id33" class="nav-link">0.6</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id34" class="nav-link">0.6.1 - 2016-05-04</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id35" class="nav-link">0.6.0 - 2016-04-25</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id36" class="nav-link">0.5 - 2016-03-07</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id37" class="nav-link">0.4</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id38" class="nav-link">0.4.1 - 2016-02-03</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id39" class="nav-link">0.4.0 - 2016-02-01</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id40" class="nav-link">0.3 - 2015-11-04</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id41" class="nav-link">0.2 - 2015-07-12</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id42" class="nav-link">0.1 - 2015-03-07</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p>For detailed changes from the prior release, click on the version number, and
+its link will bring up a GitHub listing of changes. Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> on the
+command line for details.</p>
+<div class="section" id="unreleased">
+<h2><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/1.1.0...HEAD">Unreleased</a><a class="headerlink" href="#unreleased" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id1">
+<h2>1.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/1.0.0...1.1.0">1.1.0</a> 2020-01-17<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>1.1 is a release with lots of accumulated fixes and improvements,
+especially in performance, metrics, and customization.
+There are no database changes in 1.1, so no database upgrade is required
+when upgrading from 1.0 to 1.1.</p>
+<p>Of particular interest to deployments with automatic health checking and/or large numbers of users is that the slow startup time
+introduced in 1.0 by additional spawner validation can now be mitigated by <code class="docutils literal notranslate"><span class="pre">JupyterHub.init_spawners_timeout</span></code>,
+allowing the Hub to become responsive before the spawners may have finished validating.</p>
+<p>Several new Prometheus metrics are added (and others fixed!)
+to measure sources of common performance issues,
+such as proxy interactions and startup.</p>
+<p>1.1 also begins adoption of the Jupyter telemetry project in JupyterHub,
+See <a class="reference external" href="https://jupyter-telemetry.readthedocs.io">The Jupyter Telemetry docs</a>
+for more info. The only events so far are starting and stopping servers,
+but more will be added in future releases.</p>
+<p>There are many more fixes and improvements listed below.
+Thanks to everyone who has contributed to this release!</p>
+<div class="section" id="new">
+<h4>New<a class="headerlink" href="#new" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>LocalProcessSpawner should work on windows by using psutil.pid_exists <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2882">#2882</a> (<a class="reference external" href="https://github.com/ociule">&#64;ociule</a>)</p></li>
+<li><p>trigger auth_state_hook prior to options form, add auth_state to template namespace <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2881">#2881</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>Added guide ‘install jupyterlab the hard way’ #2110 <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2842">#2842</a> (<a class="reference external" href="https://github.com/mangecoeur">&#64;mangecoeur</a>)</p></li>
+<li><p>Add prometheus metric to measure hub startup time <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2799">#2799</a> (<a class="reference external" href="https://github.com/rajat404">&#64;rajat404</a>)</p></li>
+<li><p>Add Spawner.auth_state_hook <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2555">#2555</a> (<a class="reference external" href="https://github.com/rcthomas">&#64;rcthomas</a>)</p></li>
+<li><p>Link services from jupyterhub pages <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2763">#2763</a> (<a class="reference external" href="https://github.com/rcthomas">&#64;rcthomas</a>)</p></li>
+<li><p>Add Spawner.auth_state_hook <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2555">#2555</a> (<a class="reference external" href="https://github.com/rcthomas">&#64;rcthomas</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JupyterHub.user_redirect_hook</span></code> is added to allow admins to customize /user-redirect/ behavior <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2790">#2790</a> (<a class="reference external" href="https://github.com/yuvipanda">&#64;yuvipanda</a>)</p></li>
+<li><p>Add prometheus metric to measure hub startup time <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2799">#2799</a> (<a class="reference external" href="https://github.com/rajat404">&#64;rajat404</a>)</p></li>
+<li><p>Add prometheus metric to measure proxy route poll times <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2798">#2798</a> (<a class="reference external" href="https://github.com/rajat404">&#64;rajat404</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PROXY_DELETE_DURATION_SECONDS</span></code> prometheus metric is added, to measure proxy route deletion times <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2788">#2788</a> (<a class="reference external" href="https://github.com/rajat404">&#64;rajat404</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Service.oauth_no_confirm</span></code> is added, it is useful for admin-managed services that are considered part of the Hub and shouldn’t need to prompt the user for access <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2767">#2767</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JupyterHub.default_server_name</span></code> is added to make the default server be a named server with provided name <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2735">#2735</a> (<a class="reference external" href="https://github.com/krinsman">&#64;krinsman</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JupyterHub.init_spawners_timeout</span></code> is introduced to combat slow startups on large JupyterHub deployments <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2721">#2721</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>The configuration <code class="docutils literal notranslate"><span class="pre">uids</span></code> for local authenticators is added to consistently assign users UNIX id’s between installations <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2687">#2687</a> (<a class="reference external" href="https://github.com/rgerkin">&#64;rgerkin</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JupyterHub.activity_resolution</span></code> is introduced with a default value of 30s improving performance by not updating the database with user activity too often <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2605">#2605</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p><a class="reference external" href="https://jupyterhub.readthedocs.io/en/stable/api/services.auth.html#jupyterhub.services.auth.HubAuth">HubAuth</a>’s SSL configuration can now be set through environment variables <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2588">#2588</a> (<a class="reference external" href="https://github.com/cmd-ntrf">&#64;cmd-ntrf</a>)</p></li>
+<li><p>Expose spawner.user_options in REST API. <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2755">#2755</a> (<a class="reference external" href="https://github.com/danielballan">&#64;danielballan</a>)</p></li>
+<li><p>add block for scripts included in head <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2828">#2828</a> (<a class="reference external" href="https://github.com/bitnik">&#64;bitnik</a>)</p></li>
+<li><p>Instrument JupyterHub to record events with jupyter_telemetry [Part II] <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2698">#2698</a> (<a class="reference external" href="https://github.com/Zsailer">&#64;Zsailer</a>)</p></li>
+<li><p>Make announcements visible without custom HTML <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2570">#2570</a> (<a class="reference external" href="https://github.com/consideRatio">&#64;consideRatio</a>)</p></li>
+<li><p>Display server version on admin page <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2776">#2776</a> (<a class="reference external" href="https://github.com/vilhelmen">&#64;vilhelmen</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="fixes">
+<h4>Fixes<a class="headerlink" href="#fixes" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Bugfix: pam_normalize_username didn’t return username <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2876">#2876</a> (<a class="reference external" href="https://github.com/rkdarst">&#64;rkdarst</a>)</p></li>
+<li><p>Cleanup if spawner stop fails <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2849">#2849</a> (<a class="reference external" href="https://github.com/gabber12">&#64;gabber12</a>)</p></li>
+<li><p>Fix an issue occurring with the default spawner and <code class="docutils literal notranslate"><span class="pre">internal_ssl</span></code> enabled <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2785">#2785</a> (<a class="reference external" href="https://github.com/rpwagner">&#64;rpwagner</a>)</p></li>
+<li><p>Fix named servers to not be spawnable unless activated <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2772">#2772</a> (<a class="reference external" href="https://github.com/bitnik">&#64;bitnik</a>)</p></li>
+<li><p>JupyterHub now awaits proxy availability before accepting web requests <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2750">#2750</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>Fix a no longer valid assumption that MySQL and MariaDB need to have <code class="docutils literal notranslate"><span class="pre">innodb_file_format</span></code> and <code class="docutils literal notranslate"><span class="pre">innodb_large_prefix</span></code> configured <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2712">#2712</a> (<a class="reference external" href="https://github.com/chicocvenancio">&#64;chicocvenancio</a>)</p></li>
+<li><p>Login/Logout button now updates to Login on logout <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2705">#2705</a> (<a class="reference external" href="https://github.com/aar0nTw">&#64;aar0nTw</a>)</p></li>
+<li><p>Fix handling of exceptions within <code class="docutils literal notranslate"><span class="pre">pre_spawn_start</span></code> hooks <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2684">#2684</a> (<a class="reference external" href="https://github.com/GeorgianaElena">&#64;GeorgianaElena</a>)</p></li>
+<li><p>Fix an issue where a user could end up spawning a default server instead of a named server as intended <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2682">#2682</a> (<a class="reference external" href="https://github.com/rcthomas">&#64;rcthomas</a>)</p></li>
+<li><p>/hub/admin now redirects to login if unauthenticated <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2670">#2670</a> (<a class="reference external" href="https://github.com/GeorgianaElena">&#64;GeorgianaElena</a>)</p></li>
+<li><p>Fix spawning of users with names containing characters that needs to be escaped <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2648">#2648</a> (<a class="reference external" href="https://github.com/nicorikken">&#64;nicorikken</a>)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">TOTAL_USERS</span></code> prometheus metric <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2637">#2637</a> (<a class="reference external" href="https://github.com/GeorgianaElena">&#64;GeorgianaElena</a>)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">RUNNING_SERVERS</span></code> prometheus metric <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2629">#2629</a> (<a class="reference external" href="https://github.com/GeorgianaElena">&#64;GeorgianaElena</a>)</p></li>
+<li><p>Fix faulty redirects to 404 that could occur with the use of named servers <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2594">#2594</a> (<a class="reference external" href="https://github.com/vilhelmen">&#64;vilhelmen</a>)</p></li>
+<li><p>JupyterHub API spec is now a valid OpenAPI spec <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2590">#2590</a> (<a class="reference external" href="https://github.com/sbrunk">&#64;sbrunk</a>)</p></li>
+<li><p>Use of <code class="docutils literal notranslate"><span class="pre">--help</span></code> or <code class="docutils literal notranslate"><span class="pre">--version</span></code> previously could output unrelated errors <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2584">#2584</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>No longer crash on startup in Windows <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2560">#2560</a> (<a class="reference external" href="https://github.com/adelcast">&#64;adelcast</a>)</p></li>
+<li><p>Escape usernames in the frontend <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2640">#2640</a> (<a class="reference external" href="https://github.com/nicorikken">&#64;nicorikken</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="maintenance">
+<h4>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Optimize CI jobs and default to bionic <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2897">#2897</a> (<a class="reference external" href="https://github.com/consideRatio">&#64;consideRatio</a>)</p></li>
+<li><p>catch connection error for ssl failures <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2889">#2889</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>Fix implementation of default server name <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2887">#2887</a> (<a class="reference external" href="https://github.com/krinsman">&#64;krinsman</a>)</p></li>
+<li><p>fixup allow_failures <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2880">#2880</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>Pass tests on Python 3.8 <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2879">#2879</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>Fixup .travis.yml <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2868">#2868</a> (<a class="reference external" href="https://github.com/consideRatio">&#64;consideRatio</a>)</p></li>
+<li><p>Update README’s badges <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2867">#2867</a> (<a class="reference external" href="https://github.com/consideRatio">&#64;consideRatio</a>)</p></li>
+<li><p>Dockerfile: add build-essential to builder image <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2866">#2866</a> (<a class="reference external" href="https://github.com/rkdarst">&#64;rkdarst</a>)</p></li>
+<li><p>Dockerfile: Copy share/ to the final image <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2864">#2864</a> (<a class="reference external" href="https://github.com/rkdarst">&#64;rkdarst</a>)</p></li>
+<li><p>chore: Dockerfile updates <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2853">#2853</a> (<a class="reference external" href="https://github.com/jgwerner">&#64;jgwerner</a>)</p></li>
+<li><p>simplify Dockerfile <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2840">#2840</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>docker: fix onbuild image arg <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2839">#2839</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>remove redundant pip package list in docs environment.yml <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2838">#2838</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>docs: Update docs to run tests <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2812">#2812</a> (<a class="reference external" href="https://github.com/jgwerner">&#64;jgwerner</a>)</p></li>
+<li><p>remove redundant pip package list in docs environment.yml <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2838">#2838</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>updating to pandas docs theme <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2820">#2820</a> (<a class="reference external" href="https://github.com/choldgraf">&#64;choldgraf</a>)</p></li>
+<li><p>Adding institutional faq <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2800">#2800</a> (<a class="reference external" href="https://github.com/choldgraf">&#64;choldgraf</a>)</p></li>
+<li><p>Add inline comment to test <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2826">#2826</a> (<a class="reference external" href="https://github.com/consideRatio">&#64;consideRatio</a>)</p></li>
+<li><p>Raise error on missing specified config <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2824">#2824</a> (<a class="reference external" href="https://github.com/consideRatio">&#64;consideRatio</a>)</p></li>
+<li><p>chore: Refactor Dockerfile <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2816">#2816</a> (<a class="reference external" href="https://github.com/jgwerner">&#64;jgwerner</a>)</p></li>
+<li><p>chore: Update python versions in travis matrix <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2811">#2811</a> (<a class="reference external" href="https://github.com/jgwerner">&#64;jgwerner</a>)</p></li>
+<li><p>chore: Bump package versions used in pre-commit config <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2810">#2810</a> (<a class="reference external" href="https://github.com/jgwerner">&#64;jgwerner</a>)</p></li>
+<li><p>adding docs preview to circleci <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2803">#2803</a> (<a class="reference external" href="https://github.com/choldgraf">&#64;choldgraf</a>)</p></li>
+<li><p>adding institutional faq <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2800">#2800</a> (<a class="reference external" href="https://github.com/choldgraf">&#64;choldgraf</a>)</p></li>
+<li><p>The proxy’s REST API listens on port <code class="docutils literal notranslate"><span class="pre">8001</span></code> <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2795">#2795</a> (<a class="reference external" href="https://github.com/bnuhero">&#64;bnuhero</a>)</p></li>
+<li><p>cull_idle_servers.py: rebind max_age and inactive_limit locally <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2794">#2794</a> (<a class="reference external" href="https://github.com/rkdarst">&#64;rkdarst</a>)</p></li>
+<li><p>Fix deprecation warnings <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2789">#2789</a> (<a class="reference external" href="https://github.com/tirkarthi">&#64;tirkarthi</a>)</p></li>
+<li><p>Log proxy class <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2783">#2783</a> (<a class="reference external" href="https://github.com/GeorgianaElena">&#64;GeorgianaElena</a>)</p></li>
+<li><p>Add docs for fixtures in CONTRIBUTING.md <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2782">#2782</a> (<a class="reference external" href="https://github.com/kinow">&#64;kinow</a>)</p></li>
+<li><p>Fix header project name typo <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2775">#2775</a> (<a class="reference external" href="https://github.com/kinow">&#64;kinow</a>)</p></li>
+<li><p>Remove unused setupegg.py <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2774">#2774</a> (<a class="reference external" href="https://github.com/kinow">&#64;kinow</a>)</p></li>
+<li><p>Log JupyterHub version on startup <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2752">#2752</a> (<a class="reference external" href="https://github.com/consideRatio">&#64;consideRatio</a>)</p></li>
+<li><p>Reduce verbosity for “Failing suspected API request to not-running server” (new) <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2751">#2751</a> (<a class="reference external" href="https://github.com/rkdarst">&#64;rkdarst</a>)</p></li>
+<li><p>Add missing package for json schema doc build <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2744">#2744</a> (<a class="reference external" href="https://github.com/willingc">&#64;willingc</a>)</p></li>
+<li><p>blacklist urllib3 versions with encoding bug <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2743">#2743</a> (<a class="reference external" href="https://github.com/minrk">&#64;minrk</a>)</p></li>
+<li><p>Remove tornado deprecated/unnecessary AsyncIOMainLoop().install() call <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2740">#2740</a> (<a class="reference external" href="https://github.com/kinow">&#64;kinow</a>)</p></li>
+<li><p>Fix deprecated call <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2739">#2739</a> (<a class="reference external" href="https://github.com/kinow">&#64;kinow</a>)</p></li>
+<li><p>Remove duplicate hub and authenticator traitlets from Spawner <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2736">#2736</a> (<a class="reference external" href="https://github.com/eslavich">&#64;eslavich</a>)</p></li>
+<li><p>Update issue template <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2725">#2725</a> (<a class="reference external" href="https://github.com/willingc">&#64;willingc</a>)</p></li>
+<li><p>Use autodoc-traits sphinx extension <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2723">#2723</a> (<a class="reference external" href="https://github.com/willingc">&#64;willingc</a>)</p></li>
+<li><p>Add New Server: change redirecting to relative to home page in js <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2714">#2714</a> (<a class="reference external" href="https://github.com/bitnik">&#64;bitnik</a>)</p></li>
+<li><p>Create a warning when creating a service implicitly from service_tokens <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2704">#2704</a> (<a class="reference external" href="https://github.com/katsar0v">&#64;katsar0v</a>)</p></li>
+<li><p>Fix mistypos <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2702">#2702</a> (<a class="reference external" href="https://github.com/rlukin">&#64;rlukin</a>)</p></li>
+<li><p>Add Jupyter community link <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2696">#2696</a> (<a class="reference external" href="https://github.com/mattjshannon">&#64;mattjshannon</a>)</p></li>
+<li><p>Fix failing travis tests <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2695">#2695</a> (<a class="reference external" href="https://github.com/GeorgianaElena">&#64;GeorgianaElena</a>)</p></li>
+<li><p>Documentation update: hint for using services instead of service tokens. <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2679">#2679</a> (<a class="reference external" href="https://github.com/katsar0v">&#64;katsar0v</a>)</p></li>
+<li><p>Replace header logo: jupyter -&gt; jupyterhub <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2672">#2672</a> (<a class="reference external" href="https://github.com/consideRatio">&#64;consideRatio</a>)</p></li>
+<li><p>Update spawn-form example <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2662">#2662</a> (<a class="reference external" href="https://github.com/kinow">&#64;kinow</a>)</p></li>
+<li><p>Update flask hub authentication services example in doc <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2658">#2658</a> (<a class="reference external" href="https://github.com/cmd-ntrf">&#64;cmd-ntrf</a>)</p></li>
+<li><p>close <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;container&quot;&gt;</span></code> tag in home.html <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2649">#2649</a> (<a class="reference external" href="https://github.com/bitnik">&#64;bitnik</a>)</p></li>
+<li><p>Some theme updates; no double NEXT/PREV buttons. <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2647">#2647</a> (<a class="reference external" href="https://github.com/Carreau">&#64;Carreau</a>)</p></li>
+<li><p>fix typos on technical reference documentation <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2646">#2646</a> (<a class="reference external" href="https://github.com/ilee38">&#64;ilee38</a>)</p></li>
+<li><p>Update links for Hadoop-related subprojects <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2645">#2645</a> (<a class="reference external" href="https://github.com/jcrist">&#64;jcrist</a>)</p></li>
+<li><p>corrected docker network create instructions in dockerfiles README <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2632">#2632</a> (<a class="reference external" href="https://github.com/bartolone">&#64;bartolone</a>)</p></li>
+<li><p>Fixed docs and testing code to use refactored SimpleLocalProcessSpawner <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2631">#2631</a> (<a class="reference external" href="https://github.com/danlester">&#64;danlester</a>)</p></li>
+<li><p>Update the config used for testing <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2628">#2628</a> (<a class="reference external" href="https://github.com/jtpio">&#64;jtpio</a>)</p></li>
+<li><p>Update doc: do not suggest depricated config key <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2626">#2626</a> (<a class="reference external" href="https://github.com/lumbric">&#64;lumbric</a>)</p></li>
+<li><p>Add missing words <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2625">#2625</a> (<a class="reference external" href="https://github.com/remram44">&#64;remram44</a>)</p></li>
+<li><p>cull-idle: Include a hint on how to add custom culling logic <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2613">#2613</a> (<a class="reference external" href="https://github.com/rkdarst">&#64;rkdarst</a>)</p></li>
+<li><p>Replace existing redirect code by Tornado’s addslash decorator <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2609">#2609</a> (<a class="reference external" href="https://github.com/kinow">&#64;kinow</a>)</p></li>
+<li><p>Hide Stop My Server red button after server stopped. <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2577">#2577</a> (<a class="reference external" href="https://github.com/aar0nTw">&#64;aar0nTw</a>)</p></li>
+<li><p>Update link of <code class="docutils literal notranslate"><span class="pre">changelog</span></code> <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2565">#2565</a> (<a class="reference external" href="https://github.com/iblis17">&#64;iblis17</a>)</p></li>
+<li><p>typo <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2564">#2564</a> (<a class="reference external" href="https://github.com/julienchastang">&#64;julienchastang</a>)</p></li>
+<li><p>Update to simplify the language related to spawner options <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2558">#2558</a> (<a class="reference external" href="https://github.com/NikeNano">&#64;NikeNano</a>)</p></li>
+<li><p>Adding the use case of the Elucidata: How Jupyter Notebook is used in… <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2548">#2548</a> (<a class="reference external" href="https://github.com/IamViditAgarwal">&#64;IamViditAgarwal</a>)</p></li>
+<li><p>Dict rewritten as literal <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/2546">#2546</a> (<a class="reference external" href="https://github.com/remyleone">&#64;remyleone</a>)</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>1.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.9.6...1.0.0">1.0.0</a> 2019-05-03<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub 1.0 is a major milestone for JupyterHub.
+Huge thanks to the many people who have contributed to this release,
+whether it was through discussion, testing, documentation, or development.</p>
+<div class="section" id="major-new-features">
+<h4>Major new features<a class="headerlink" href="#major-new-features" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Support TLS encryption and authentication of all internal communication.
+Spawners must implement <code class="docutils literal notranslate"><span class="pre">.move_certs</span></code> method to make certificates available
+to the notebook server if it is not local to the Hub.</p></li>
+<li><p>There is now full UI support for managing named servers.
+With named servers, each jupyterhub user may have access to more than one named server. For example, a professor may access a server named <code class="docutils literal notranslate"><span class="pre">research</span></code> and another named <code class="docutils literal notranslate"><span class="pre">teaching</span></code>.</p>
+<p><img alt="named servers on the home page" src="_images/named-servers-home.png" /></p>
+</li>
+<li><p>Authenticators can now expire and refresh authentication data by implementing
+<code class="docutils literal notranslate"><span class="pre">Authenticator.refresh_user(user)</span></code>.
+This allows things like OAuth data and access tokens to be refreshed.
+When used together with <code class="docutils literal notranslate"><span class="pre">Authenticator.refresh_pre_spawn</span> <span class="pre">=</span> <span class="pre">True</span></code>,
+auth refresh can be forced prior to Spawn,
+allowing the Authenticator to <em>require</em> that authentication data is fresh
+immediately before the user’s server is launched.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="api/auth.html#jupyterhub.auth.Authenticator.refresh_user" title="jupyterhub.auth.Authenticator.refresh_user"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Authenticator.refresh_user()</span></code></a></p></li>
+<li><p><a class="reference internal" href="api/spawner.html#jupyterhub.spawner.Spawner.create_certs" title="jupyterhub.spawner.Spawner.create_certs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Spawner.create_certs()</span></code></a></p></li>
+<li><p><a class="reference internal" href="api/spawner.html#jupyterhub.spawner.Spawner.move_certs" title="jupyterhub.spawner.Spawner.move_certs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Spawner.move_certs()</span></code></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="new-features">
+<h4>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>allow custom spawners, authenticators, and proxies to register themselves via ‘entry points’, enabling more convenient configuration such as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">authenticator_class</span> <span class="o">=</span> <span class="s1">&#39;github&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">spawner_class</span> <span class="o">=</span> <span class="s1">&#39;docker&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">proxy_class</span> <span class="o">=</span> <span class="s1">&#39;traefik_etcd&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Spawners are passed the tornado Handler object that requested their spawn (as <code class="docutils literal notranslate"><span class="pre">self.handler</span></code>),
+so they can do things like make decisions based on query arguments in the request.</p></li>
+<li><p>SimpleSpawner and DummyAuthenticator, which are useful for testing, have been merged into JupyterHub itself:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For testing purposes only. Should not be used in production.</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">authenticator_class</span> <span class="o">=</span> <span class="s1">&#39;dummy&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">spawner_class</span> <span class="o">=</span> <span class="s1">&#39;simple&#39;</span>
+</pre></div>
+</div>
+<p>These classes are <strong>not</strong> appropriate for production use. Only testing.</p>
+</li>
+<li><p>Add health check endpoint at <code class="docutils literal notranslate"><span class="pre">/hub/health</span></code></p></li>
+<li><p>Several prometheus metrics have been added (thanks to <a class="reference external" href="https://www.outreachy.org/">Outreachy</a> applicants!)</p></li>
+<li><p>A new API for registering user activity.
+To prepare for the addition of <a class="reference external" href="https://github.com/jupyterhub/traefik-proxy">alternate proxy implementations</a>,
+responsibility for tracking activity is taken away from the proxy
+and moved to the notebook server (which already has activity tracking features).
+Activity is now tracked by pushing it to the Hub from user servers instead of polling the
+proxy API.</p></li>
+<li><p>Dynamic <code class="docutils literal notranslate"><span class="pre">options_form</span></code> callables may now return an empty string
+which will result in no options form being rendered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Spawner.user_options</span></code> is persisted to the database to be re-used,
+so that a server spawned once via the form can be re-spawned via the API
+with the same options.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">c.PAMAuthenticator.pam_normalize_username</span></code> option for round-tripping
+usernames through PAM to retrieve the normalized form.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">c.JupyterHub.named_server_limit_per_user</span></code> configuration to limit
+the number of named servers each user can have.
+The default is 0, for no limit.</p></li>
+<li><p>API requests to HubAuthenticated services (e.g. single-user servers)
+may pass a token in the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header,
+matching authentication with the Hub API itself.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">Authenticator.is_admin(handler,</span> <span class="pre">authentication)</span></code> method
+and <code class="docutils literal notranslate"><span class="pre">Authenticator.admin_groups</span></code> configuration for automatically
+determining that a member of a group should be considered an admin.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">c.Authenticator.post_auth_hook</span></code> configuration
+that can be any callable of the form <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">def</span> <span class="pre">hook(authenticator,</span> <span class="pre">handler,</span> <span class="pre">authentication=None):</span></code>.
+This hook may transform the return value of <code class="docutils literal notranslate"><span class="pre">Authenticator.authenticate()</span></code>
+and return a new authentication dictionary,
+e.g. specifying admin privileges, group membership,
+or custom white/blacklisting logic.
+This hook is called <em>after</em> existing normalization and whitelist checking.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Spawner.options_from_form</span></code> may now be async</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">JupyterHub.shutdown_on_logout</span></code> option to trigger shutdown of a user’s
+servers when they log out.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">Spawner.start</span></code> raises an Exception,
+a message can be passed on to the user if the exception has a <code class="docutils literal notranslate"><span class="pre">.jupyterhub_message</span></code> attribute.</p></li>
+</ul>
+</div>
+<div class="section" id="changes">
+<h4>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Authentication methods such as <code class="docutils literal notranslate"><span class="pre">check_whitelist</span></code> should now take an additional
+<code class="docutils literal notranslate"><span class="pre">authentication</span></code> argument
+that will be a dictionary (default: None) of authentication data,
+as returned by <code class="docutils literal notranslate"><span class="pre">Authenticator.authenticate()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_whitelist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">authentication</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">authentication</span></code> should have a default value of None
+for backward-compatibility with jupyterhub &lt; 1.0.</p>
+</li>
+<li><p>Prometheus metrics page is now authenticated.
+Any authenticated user may see the prometheus metrics.
+To disable prometheus authentication,
+set <code class="docutils literal notranslate"><span class="pre">JupyterHub.authenticate_prometheus</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p></li>
+<li><p>Visits to <code class="docutils literal notranslate"><span class="pre">/user/:name</span></code> no longer trigger an implicit launch of the user’s server.
+Instead, a page is shown indicating that the server is not running
+with a link to request the spawn.</p></li>
+<li><p>API requests to <code class="docutils literal notranslate"><span class="pre">/user/:name</span></code> for a not-running server will have status 503 instead of 404.</p></li>
+<li><p>OAuth includes a confirmation page when attempting to visit another user’s server,
+so that users can choose to cancel authentication with the single-user server.
+Confirmation is still skipped when accessing your own server.</p></li>
+</ul>
+</div>
+<div class="section" id="fixed">
+<h4>Fixed<a class="headerlink" href="#fixed" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Various fixes to improve Windows compatibility
+(default Authenticator and Spawner still do not support Windows, but other Spawners may)</p></li>
+<li><p>Fixed compatibility with Oracle db</p></li>
+<li><p>Fewer redirects following a visit to the default <code class="docutils literal notranslate"><span class="pre">/</span></code> url</p></li>
+<li><p>Error when progress is requested before progress is ready</p></li>
+<li><p>Error when API requests are made to a not-running server without authentication</p></li>
+<li><p>Avoid logging database password on connect if password is specified in <code class="docutils literal notranslate"><span class="pre">JupyterHub.db_url</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="development-changes">
+<h4>Development changes<a class="headerlink" href="#development-changes" title="Permalink to this headline">¶</a></h4>
+<p>There have been several changes to the development process that shouldn’t
+generally affect users of JupyterHub, but may affect contributors.
+In general, see <code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code> for contribution info or ask if you have questions.</p>
+<ul class="simple">
+<li><p>JupyterHub has adopted <code class="docutils literal notranslate"><span class="pre">black</span></code> as a code autoformatter and <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code>
+as a tool for automatically running code formatting on commit.
+This is meant to make it <em>easier</em> to contribute to JupyterHub,
+so let us know if it’s having the opposite effect.</p></li>
+<li><p>JupyterHub has switched its test suite to using <code class="docutils literal notranslate"><span class="pre">pytest-asyncio</span></code> from <code class="docutils literal notranslate"><span class="pre">pytest-tornado</span></code>.</p></li>
+<li><p>OAuth is now implemented internally using <code class="docutils literal notranslate"><span class="pre">oauthlib</span></code> instead of <code class="docutils literal notranslate"><span class="pre">python-oauth2</span></code>. This should have no effect on behavior.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>0.9<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.9.4...0.9.6">0.9.6</a> 2019-04-01<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub 0.9.6 is a security release.</p>
+<ul class="simple">
+<li><p>Fixes an Open Redirect vulnerability (CVE-2019-10255).</p></li>
+</ul>
+<p>JupyterHub 0.9.5 included a partial fix for this issue.</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.9.3...0.9.4">0.9.4</a> 2018-09-24<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub 0.9.4 is a small bugfix release.</p>
+<ul class="simple">
+<li><p>Fixes an  issue that required all running user servers to be restarted
+when performing an upgrade from 0.8 to 0.9.</p></li>
+<li><p>Fixes content-type for API endpoints back to <code class="docutils literal notranslate"><span class="pre">application/json</span></code>.
+It was <code class="docutils literal notranslate"><span class="pre">text/html</span></code> in 0.9.0-0.9.3.</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.9.2...0.9.3">0.9.3</a> 2018-09-12<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub 0.9.3 contains small bugfixes and improvements</p>
+<ul class="simple">
+<li><p>Fix token page and model handling of <code class="docutils literal notranslate"><span class="pre">expires_at</span></code>.
+This field was missing from the REST API model for tokens
+and could cause the token page to not render</p></li>
+<li><p>Add keep-alive to progress event stream to avoid proxies dropping
+the connection due to inactivity</p></li>
+<li><p>Documentation and example improvements</p></li>
+<li><p>Disable quit button when using notebook 5.6</p></li>
+<li><p>Prototype new feature (may change prior to 1.0):
+pass requesting Handler to Spawners during start,
+accessible as <code class="docutils literal notranslate"><span class="pre">self.handler</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.9.1...0.9.2">0.9.2</a> 2018-08-10<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub 0.9.2 contains small bugfixes and improvements.</p>
+<ul class="simple">
+<li><p>Documentation and example improvements</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Spawner.consecutive_failure_limit</span></code> config for aborting the Hub if too many spawns fail in a row.</p></li>
+<li><p>Fix for handling SIGTERM when run with asyncio (tornado 5)</p></li>
+<li><p>Windows compatibility fixes</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.9.0...0.9.1">0.9.1</a> 2018-07-04<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub 0.9.1 contains a number of small bugfixes on top of 0.9.</p>
+<ul class="simple">
+<li><p>Use a PID file for the proxy to decrease the likelihood that a leftover proxy process will prevent JupyterHub from restarting</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c.LocalProcessSpawner.shell_cmd</span></code> is now configurable</p></li>
+<li><p>API requests to stopped servers (requests to the hub for <code class="docutils literal notranslate"><span class="pre">/user/:name/api/...</span></code>) fail with 404 rather than triggering a restart of the server</p></li>
+<li><p>Compatibility fix for notebook 5.6.0 which will introduce further
+security checks for local connections</p></li>
+<li><p>Managed services always use localhost to talk to the Hub if the Hub listening on all interfaces</p></li>
+<li><p>When using a URL prefix, the Hub route will be <code class="docutils literal notranslate"><span class="pre">JupyterHub.base_url</span></code> instead of unconditionally <code class="docutils literal notranslate"><span class="pre">/</span></code></p></li>
+<li><p>additional fixes and improvements</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.8.1...0.9.0">0.9.0</a> 2018-06-15<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub 0.9 is a major upgrade of JupyterHub.
+There are several changes to the database schema,
+so make sure to backup your database and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyterhub</span> <span class="n">upgrade</span><span class="o">-</span><span class="n">db</span>
+</pre></div>
+</div>
+<p>after upgrading jupyterhub.</p>
+<p>The biggest change for 0.9 is the switch to asyncio coroutines everywhere
+instead of tornado coroutines. Custom Spawners and Authenticators are still
+free to use tornado coroutines for async methods, as they will continue to
+work. As part of this upgrade, JupyterHub 0.9 drops support for Python &lt; 3.5
+and tornado &lt; 5.0.</p>
+<div class="section" id="changed">
+<h4>Changed<a class="headerlink" href="#changed" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Require Python &gt;= 3.5</p></li>
+<li><p>Require tornado &gt;= 5.0</p></li>
+<li><p>Use asyncio coroutines throughout</p></li>
+<li><p>Set status 409 for conflicting actions instead of 400,
+e.g. creating users or groups that already exist.</p></li>
+<li><p>timestamps in REST API continue to be UTC, but now include ‘Z’ suffix
+to identify them as such.</p></li>
+<li><p>REST API User model always includes <code class="docutils literal notranslate"><span class="pre">servers</span></code> dict,
+not just when named servers are enabled.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">server</span></code> info is no longer available to oauth identification endpoints,
+only user info and group membership.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">User.last_activity</span></code> may be None if a user has not been seen,
+rather than starting with the user creation time
+which is now separately stored as <code class="docutils literal notranslate"><span class="pre">User.created</span></code>.</p></li>
+<li><p>static resources are now found in <code class="docutils literal notranslate"><span class="pre">$PREFIX/share/jupyterhub</span></code> instead of <code class="docutils literal notranslate"><span class="pre">share/jupyter/hub</span></code> for improved consistency.</p></li>
+<li><p>Deprecate <code class="docutils literal notranslate"><span class="pre">.extra_log_file</span></code> config. Use pipe redirection instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyterhub</span> <span class="o">&amp;&gt;&gt;</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">jupyterhub</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">JupyterHub.bind_url</span></code> config for setting the full bind URL of the proxy.
+Sets ip, port, base_url all at once.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">JupyterHub.hub_bind_url</span></code> for setting the full host+port of the Hub.
+<code class="docutils literal notranslate"><span class="pre">hub_bind_url</span></code> supports unix domain sockets, e.g.
+<code class="docutils literal notranslate"><span class="pre">unix+http://%2Fsrv%2Fjupyterhub.sock</span></code></p></li>
+<li><p>Deprecate <code class="docutils literal notranslate"><span class="pre">JupyterHub.hub_connect_port</span></code> config in favor of <code class="docutils literal notranslate"><span class="pre">JupyterHub.hub_connect_url</span></code>. <code class="docutils literal notranslate"><span class="pre">hub_connect_ip</span></code> is not deprecated
+and can still be used in the common case where only the ip address of the hub differs from the bind ip.</p></li>
+</ul>
+</div>
+<div class="section" id="added">
+<h4>Added<a class="headerlink" href="#added" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Spawners can define a <code class="docutils literal notranslate"><span class="pre">.progress</span></code> method which should be an async generator.
+The generator should yield events of the form:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;some-state-message&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;progress&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>These messages will be shown with a progress bar on the spawn-pending page.
+The <code class="docutils literal notranslate"><span class="pre">async_generator</span></code> package can be used to make async generators
+compatible with Python 3.5.</p>
+</li>
+<li><p>track activity of individual API tokens</p></li>
+<li><p>new REST API for managing API tokens at <code class="docutils literal notranslate"><span class="pre">/hub/api/user/tokens[/token-id]</span></code></p></li>
+<li><p>allow viewing/revoking tokens via token page</p></li>
+<li><p>User creation time is available in the REST API as <code class="docutils literal notranslate"><span class="pre">User.created</span></code></p></li>
+<li><p>Server start time is stored as <code class="docutils literal notranslate"><span class="pre">Server.started</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Spawner.start</span></code> may return a URL for connecting to a notebook instead of <code class="docutils literal notranslate"><span class="pre">(ip,</span> <span class="pre">port)</span></code>. This enables Spawners to launch servers that setup their own HTTPS.</p></li>
+<li><p>Optimize database performance by disabling sqlalchemy expire_on_commit by default.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">jupyterhub.dbutil</span> <span class="pre">shell</span></code> entrypoint for quickly
+launching an IPython session connected to your JupyterHub database.</p></li>
+<li><p>Include <code class="docutils literal notranslate"><span class="pre">User.auth_state</span></code> in user model on single-user REST endpoints for admins only.</p></li>
+<li><p>Include <code class="docutils literal notranslate"><span class="pre">Server.state</span></code> in server model on REST endpoints for admins only.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Authenticator.blacklist</span></code> for blacklisting users instead of whitelisting.</p></li>
+<li><p>Pass <code class="docutils literal notranslate"><span class="pre">c.JupyterHub.tornado_settings['cookie_options']</span></code> down to Spawners
+so that cookie options (e.g. <code class="docutils literal notranslate"><span class="pre">expires_days</span></code>) can be set globally for the whole application.</p></li>
+<li><p>SIGINFO (<code class="docutils literal notranslate"><span class="pre">ctrl-t</span></code>) handler showing the current status of all running threads,
+coroutines, and CPU/memory/FD consumption.</p></li>
+<li><p>Add async <code class="docutils literal notranslate"><span class="pre">Spawner.get_options_form</span></code> alternative to <code class="docutils literal notranslate"><span class="pre">.options_form</span></code>, so it can be a coroutine.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">JupyterHub.redirect_to_server</span></code> config to govern whether
+users should be sent to their server on login or the JupyterHub home page.</p></li>
+<li><p>html page templates can be more easily customized and extended.</p></li>
+<li><p>Allow registering external OAuth clients for using the Hub as an OAuth provider.</p></li>
+<li><p>Add basic prometheus metrics at <code class="docutils literal notranslate"><span class="pre">/hub/metrics</span></code> endpoint.</p></li>
+<li><p>Add session-id cookie, enabling immediate revocation of login tokens.</p></li>
+<li><p>Authenticators may specify that users are admins by specifying the <code class="docutils literal notranslate"><span class="pre">admin</span></code> key when return the user model as a dict.</p></li>
+<li><p>Added “Start All” button to admin page for launching all user servers at once.</p></li>
+<li><p>Services have an <code class="docutils literal notranslate"><span class="pre">info</span></code> field which is a dictionary.
+This is accessible via the REST API.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JupyterHub.extra_handlers</span></code> allows defining additional tornado RequestHandlers attached to the Hub.</p></li>
+<li><p>API tokens may now expire.
+Expiry is available in the REST model as <code class="docutils literal notranslate"><span class="pre">expires_at</span></code>,
+and settable when creating API tokens by specifying <code class="docutils literal notranslate"><span class="pre">expires_in</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h4>Fixed<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Remove green from theme to improve accessibility</p></li>
+<li><p>Fix error when proxy deletion fails due to route already being deleted</p></li>
+<li><p>clear <code class="docutils literal notranslate"><span class="pre">?redirects</span></code> from URL on successful launch</p></li>
+<li><p>disable send2trash by default, which is rarely desirable for jupyterhub</p></li>
+<li><p>Put PAM calls in a thread so they don’t block the main application
+in cases where PAM is slow (e.g. LDAP).</p></li>
+<li><p>Remove implicit spawn from login handler,
+instead relying on subsequent request for <code class="docutils literal notranslate"><span class="pre">/user/:name</span></code> to trigger spawn.</p></li>
+<li><p>Fixed several inconsistencies for initial redirects,
+depending on whether server is running or not and whether the user is logged in or not.</p></li>
+<li><p>Admin requests for  <code class="docutils literal notranslate"><span class="pre">/user/:name</span></code> (when admin-access is enabled) launch the right server if it’s not running instead of redirecting to their own.</p></li>
+<li><p>Major performance improvement starting up JupyterHub with many users,
+especially when most are inactive.</p></li>
+<li><p>Various fixes in race conditions and performance improvements with the default proxy.</p></li>
+<li><p>Fixes for CORS headers</p></li>
+<li><p>Stop setting <code class="docutils literal notranslate"><span class="pre">.form-control</span></code> on spawner form inputs unconditionally.</p></li>
+<li><p>Better recovery from database errors and database connection issues
+without having to restart the Hub.</p></li>
+<li><p>Fix handling of <code class="docutils literal notranslate"><span class="pre">~</span></code> character in usernames.</p></li>
+<li><p>Fix jupyterhub startup when <code class="docutils literal notranslate"><span class="pre">getpass.getuser()</span></code> would fail,
+e.g. due to missing entry in passwd file in containers.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>0.8<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.8.0...0.8.1">0.8.1</a> 2017-11-07<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub 0.8.1 is a collection of bugfixes and small improvements on 0.8.</p>
+<div class="section" id="id15">
+<h4>Added<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Run tornado with AsyncIO by default</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">jupyterhub</span> <span class="pre">--upgrade-db</span></code> flag for automatically upgrading the database as part of startup.
+This is useful for cases where manually running <code class="docutils literal notranslate"><span class="pre">jupyterhub</span> <span class="pre">upgrade-db</span></code>
+as a separate step is unwieldy.</p></li>
+<li><p>Avoid creating backups of the database when no changes are to be made by
+<code class="docutils literal notranslate"><span class="pre">jupyterhub</span> <span class="pre">upgrade-db</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h4>Fixed<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Add some further validation to usernames - <code class="docutils literal notranslate"><span class="pre">/</span></code> is not allowed in usernames.</p></li>
+<li><p>Fix empty logout page when using auto_login</p></li>
+<li><p>Fix autofill of username field in default login form.</p></li>
+<li><p>Fix listing of users on the admin page who have not yet started their server.</p></li>
+<li><p>Fix ever-growing traceback when re-raising Exceptions from spawn failures.</p></li>
+<li><p>Remove use of deprecated <code class="docutils literal notranslate"><span class="pre">bower</span></code> for javascript client dependencies.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id17">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.7.2...0.8.0">0.8.0</a> 2017-10-03<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub 0.8 is a big release!</p>
+<p>Perhaps the biggest change is the use of OAuth to negotiate authentication
+between the Hub and single-user services.
+Due to this change, it is important that the single-user server
+and Hub are both running the same version of JupyterHub.
+If you are using containers (e.g. via DockerSpawner or KubeSpawner),
+this means upgrading jupyterhub in your user images at the same time as the Hub.
+In most cases, a</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyterhub</span><span class="o">==</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>in your Dockerfile is sufficient.</p>
+<div class="section" id="id18">
+<h4>Added<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>JupyterHub now defined a <code class="docutils literal notranslate"><span class="pre">Proxy</span></code> API for custom
+proxy implementations other than the default.
+The defaults are unchanged,
+but configuration of the proxy is now done on the <code class="docutils literal notranslate"><span class="pre">ConfigurableHTTPProxy</span></code> class instead of the top-level JupyterHub.
+TODO: docs for writing a custom proxy.</p></li>
+<li><p>Single-user servers and services
+(anything that uses HubAuth)
+can now accept token-authenticated requests via the Authentication header.</p></li>
+<li><p>Authenticators can now store state in the Hub’s database.
+To do so, the <code class="docutils literal notranslate"><span class="pre">authenticate</span></code> method should return a dict of the form</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This data will be encrypted and requires <code class="docutils literal notranslate"><span class="pre">JUPYTERHUB_CRYPT_KEY</span></code> environment variable to be set
+and the <code class="docutils literal notranslate"><span class="pre">Authenticator.enable_auth_state</span></code> flag to be True.
+If these are not set, auth_state returned by the Authenticator will not be stored.</p>
+</li>
+<li><p>There is preliminary support for multiple (named) servers per user in the REST API.
+Named servers can be created via API requests, but there is currently no UI for managing them.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">LocalProcessSpawner.popen_kwargs</span></code> and <code class="docutils literal notranslate"><span class="pre">LocalProcessSpawner.shell_cmd</span></code>
+for customizing how user server processes are launched.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Authenticator.auto_login</span></code> flag for skipping the “Login with…” page explicitly.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">JupyterHub.hub_connect_ip</span></code> configuration
+for the ip that should be used when connecting to the Hub.
+This is promoting (and deprecating) <code class="docutils literal notranslate"><span class="pre">DockerSpawner.hub_ip_connect</span></code>
+for use by all Spawners.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Spawner.pre_spawn_hook(spawner)</span></code> hook for customizing
+pre-spawn events.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">JupyterHub.active_server_limit</span></code> and <code class="docutils literal notranslate"><span class="pre">JupyterHub.concurrent_spawn_limit</span></code>
+for limiting the total number of running user servers and the number of pending spawns, respectively.</p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h4>Changed<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>more arguments to spawners are now passed via environment variables (<code class="docutils literal notranslate"><span class="pre">.get_env()</span></code>)
+rather than CLI arguments (<code class="docutils literal notranslate"><span class="pre">.get_args()</span></code>)</p></li>
+<li><p>internally generated tokens no longer get extra hash rounds,
+significantly speeding up authentication.
+The hash rounds were deemed unnecessary because the tokens were already
+generated with high entropy.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JUPYTERHUB_API_TOKEN</span></code> env is available at all times,
+rather than being removed during single-user start.
+The token is now accessible to kernel processes,
+enabling user kernels to make authenticated API requests to Hub-authenticated services.</p></li>
+<li><p>Cookie secrets should be 32B hex instead of large base64 secrets.</p></li>
+<li><p>pycurl is used by default, if available.</p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h4>Fixed<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<p>So many things fixed!</p>
+<ul class="simple">
+<li><p>Collisions are checked when users are renamed</p></li>
+<li><p>Fix bug where OAuth authenticators could not logout users
+due to being redirected right back through the login process.</p></li>
+<li><p>If there are errors loading your config files,
+JupyterHub will refuse to start with an informative error.
+Previously, the bad config would be ignored and JupyterHub would launch with default configuration.</p></li>
+<li><p>Raise 403 error on unauthorized user rather than redirect to login,
+which could cause redirect loop.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">httponly</span></code> on cookies because it’s prudent.</p></li>
+<li><p>Improve support for MySQL as the database backend</p></li>
+<li><p>Many race conditions and performance problems under heavy load have been fixed.</p></li>
+<li><p>Fix alembic tagging of database schema versions.</p></li>
+</ul>
+</div>
+<div class="section" id="removed">
+<h4>Removed<a class="headerlink" href="#removed" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>End support for Python 3.3</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>0.7<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id22">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.7.1...0.7.2">0.7.2</a> - 2017-01-09<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id23">
+<h4>Added<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Support service environment variables and defaults in <code class="docutils literal notranslate"><span class="pre">jupyterhub-singleuser</span></code>
+for easier deployment of notebook servers as a Service.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">--group</span></code> parameter for deploying <code class="docutils literal notranslate"><span class="pre">jupyterhub-singleuser</span></code> as a Service with group authentication.</p></li>
+<li><p>Include URL parameters when redirecting through <code class="docutils literal notranslate"><span class="pre">/user-redirect/</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>Fixed<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix group authentication for HubAuthenticated services</p></li>
+</ul>
+</div>
+<div class="section" id="id25">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.7.0...0.7.1">0.7.1</a> - 2017-01-02<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h4>Added<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Spawner.will_resume</span></code> for signaling that a single-user server is paused instead of stopped.
+This is needed for cases like <code class="docutils literal notranslate"><span class="pre">DockerSpawner.remove_containers</span> <span class="pre">=</span> <span class="pre">False</span></code>,
+where the first API token is re-used for subsequent spawns.</p></li>
+<li><p>Warning on startup about single-character usernames,
+caused by common <code class="docutils literal notranslate"><span class="pre">set('string')</span></code> typo in config.</p></li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h4>Fixed<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Removed spurious warning about empty <code class="docutils literal notranslate"><span class="pre">next_url</span></code>, which is AOK.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id28">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.6.1...0.7.0">0.7.0</a> - 2016-12-2<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id29">
+<h4>Added<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Implement Services API <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/705">#705</a></p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">/api/</span></code> and <code class="docutils literal notranslate"><span class="pre">/api/info</span></code> endpoints <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/675">#675</a></p></li>
+<li><p>Add documentation for JupyterLab, pySpark configuration, troubleshooting,
+and more.</p></li>
+<li><p>Add logging of error if adding users already in database.  <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/689">#689</a></p></li>
+<li><p>Add HubAuth class for authenticating with JupyterHub. This class can
+be used by any application, even outside tornado.</p></li>
+<li><p>Add user groups.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">/hub/user-redirect/...</span></code> URL for redirecting users to a file on their own server.</p></li>
+</ul>
+</div>
+<div class="section" id="id30">
+<h4>Changed<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Always install with setuptools but not eggs (effectively require
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code>) <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/722">#722</a></p></li>
+<li><p>Updated formatting of changelog. <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/711">#711</a></p></li>
+<li><p>Single-user server is provided by JupyterHub package, so single-user servers depend on JupyterHub now.</p></li>
+</ul>
+</div>
+<div class="section" id="id31">
+<h4>Fixed<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Fix docker repository location <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/719">#719</a></p></li>
+<li><p>Fix swagger spec conformance and timestamp type in API spec</p></li>
+<li><p>Various redirect-loop-causing bugs have been fixed.</p></li>
+</ul>
+</div>
+<div class="section" id="id32">
+<h4>Removed<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Deprecate <code class="docutils literal notranslate"><span class="pre">--no-ssl</span></code> command line option. It has no meaning and warns if
+used. <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/789">#789</a></p></li>
+<li><p>Deprecate <code class="docutils literal notranslate"><span class="pre">%U</span></code> username substitution in favor of <code class="docutils literal notranslate"><span class="pre">{username}</span></code>. <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/748">#748</a></p></li>
+<li><p>Removed deprecated SwarmSpawner link.  <a class="reference external" href="https://github.com/jupyterhub/jupyterhub/pull/699">#699</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id33">
+<h2>0.6<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id34">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.6.0...0.6.1">0.6.1</a> - 2016-05-04<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<p>Bugfixes on 0.6:</p>
+<ul class="simple">
+<li><p>statsd is an optional dependency, only needed if in use</p></li>
+<li><p>Notice more quickly when servers have crashed</p></li>
+<li><p>Better error pages for proxy errors</p></li>
+<li><p>Add Stop All button to admin panel for stopping all servers at once</p></li>
+</ul>
+</div>
+<div class="section" id="id35">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.5.0...0.6.0">0.6.0</a> - 2016-04-25<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>JupyterHub has moved to a new <code class="docutils literal notranslate"><span class="pre">jupyterhub</span></code> namespace on GitHub and Docker. What was <code class="docutils literal notranslate"><span class="pre">juptyer/jupyterhub</span></code> is now <code class="docutils literal notranslate"><span class="pre">jupyterhub/jupyterhub</span></code>, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jupyterhub/jupyterhub</span></code> image on DockerHub no longer loads the jupyterhub_config.py in an ONBUILD step. A new <code class="docutils literal notranslate"><span class="pre">jupyterhub/jupyterhub-onbuild</span></code> image does this</p></li>
+<li><p>Add statsd support, via <code class="docutils literal notranslate"><span class="pre">c.JupyterHub.statsd_{host,port,prefix}</span></code></p></li>
+<li><p>Update to traitlets 4.1 <code class="docutils literal notranslate"><span class="pre">&#64;default</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;observe</span></code> APIs for traits</p></li>
+<li><p>Allow disabling PAM sessions via <code class="docutils literal notranslate"><span class="pre">c.PAMAuthenticator.open_sessions</span> <span class="pre">=</span> <span class="pre">False</span></code>. This may be needed on SELinux-enabled systems, where our PAM session logic often does not work properly</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Spawner.environment</span></code> configurable, for defining extra environment variables to load for single-user servers</p></li>
+<li><p>JupyterHub API tokens can be pregenerated and loaded via <code class="docutils literal notranslate"><span class="pre">JupyterHub.api_tokens</span></code>, a dict of <code class="docutils literal notranslate"><span class="pre">token:</span> <span class="pre">username</span></code>.</p></li>
+<li><p>JupyterHub API tokens can be requested via the REST API, with a POST request to <code class="docutils literal notranslate"><span class="pre">/api/authorizations/token</span></code>.
+This can only be used if the Authenticator has a username and password.</p></li>
+<li><p>Various fixes for user URLs and redirects</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id36">
+<h2><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.4.1...0.5.0">0.5</a> - 2016-03-07<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Single-user server must be run with Jupyter Notebook ≥ 4.0</p></li>
+<li><p>Require <code class="docutils literal notranslate"><span class="pre">--no-ssl</span></code> confirmation to allow the Hub to be run without SSL (e.g. behind SSL termination in nginx)</p></li>
+<li><p>Add lengths to text fields for MySQL support</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Spawner.disable_user_config</span></code> for preventing user-owned configuration from modifying single-user servers.</p></li>
+<li><p>Fixes for MySQL support.</p></li>
+<li><p>Add ability to run each user’s server on its own subdomain. Requires wildcard DNS and wildcard SSL to be feasible. Enable subdomains by setting <code class="docutils literal notranslate"><span class="pre">JupyterHub.subdomain_host</span> <span class="pre">=</span> <span class="pre">'https://jupyterhub.domain.tld[:port]'</span></code>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> for local communication instead of <code class="docutils literal notranslate"><span class="pre">localhost</span></code>, avoiding issues with DNS on some systems.</p></li>
+<li><p>Fix race that could add users to proxy prematurely if spawning is slow.</p></li>
+</ul>
+</div>
+<div class="section" id="id37">
+<h2>0.4<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id38">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.4.0...0.4.1">0.4.1</a> - 2016-02-03<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<p>Fix removal of <code class="docutils literal notranslate"><span class="pre">/login</span></code> page in 0.4.0, breaking some OAuth providers.</p>
+</div>
+<div class="section" id="id39">
+<h3><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.3.0...0.4.0">0.4.0</a> - 2016-02-01<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Spawner.user_options_form</span></code> for specifying an HTML form to present to users,
+allowing users to influence the spawning of their own servers.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Authenticator.pre_spawn_start</span></code> and <code class="docutils literal notranslate"><span class="pre">Authenticator.post_spawn_stop</span></code> hooks,
+so that Authenticators can do setup or teardown (e.g. passing credentials to Spawner,
+mounting data sources, etc.).
+These methods are typically used with custom Authenticator+Spawner pairs.</p></li>
+<li><p>0.4 will be the last JupyterHub release where single-user servers running IPython 3 is supported instead of Notebook ≥ 4.0.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id40">
+<h2><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.2.0...0.3.0">0.3</a> - 2015-11-04<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>No longer make the user starting the Hub an admin</p></li>
+<li><p>start PAM sessions on login</p></li>
+<li><p>hooks for Authenticators to fire before spawners start and after they stop,
+allowing deeper interaction between Spawner/Authenticator pairs.</p></li>
+<li><p>login redirect fixes</p></li>
+</ul>
+</div>
+<div class="section" id="id41">
+<h2><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/compare/0.1.0...0.2.0">0.2</a> - 2015-07-12<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Based on standalone traitlets instead of IPython.utils.traitlets</p></li>
+<li><p>multiple users in admin panel</p></li>
+<li><p>Fixes for usernames that require escaping</p></li>
+</ul>
+</div>
+<div class="section" id="id42">
+<h2>0.1 - 2015-03-07<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
+<p>First preview release</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="admin/upgrading.html" title="previous page">Upgrading JupyterHub</a>
+    <a class='right-next' id="next-link" href="api/index.html" title="next page">JupyterHub API</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Upgrading JupyterHub &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Changelog" href="../changelog.html" />
+    <link rel="prev" title="Troubleshooting" href="../troubleshooting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="../troubleshooting.html">Troubleshooting</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Upgrading JupyterHub</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="../changelog.html">Changelog</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#read-the-changelog" class="nav-link">Read the Changelog</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#notify-your-users" class="nav-link">Notify your users</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#backup-database-config" class="nav-link">Backup database & config</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#shutdown-jupyterhub" class="nav-link">Shutdown JupyterHub</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#upgrade-jupyterhub-packages" class="nav-link">Upgrade JupyterHub packages</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#upgrade-jupyterhub-database" class="nav-link">Upgrade JupyterHub database</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#sqlite-database-disadvantages" class="nav-link">SQLite database disadvantages</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#what-happens-if-i-delete-my-database" class="nav-link">What happens if I delete my database?</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#start-jupyterhub" class="nav-link">Start JupyterHub</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="upgrading-jupyterhub">
+<span id="admin-upgrading"></span><h1>Upgrading JupyterHub<a class="headerlink" href="#upgrading-jupyterhub" title="Permalink to this headline">¶</a></h1>
+<p>JupyterHub offers easy upgrade pathways between minor versions. This
+document describes how to do these upgrades.</p>
+<p>If you are using <a class="reference internal" href="../index.html#index-distributions"><span class="std std-ref">a JupyterHub distribution</span></a>, you
+should consult the distribution’s documentation on how to upgrade. This
+document is if you have set up your own JupyterHub without using a
+distribution.</p>
+<p>It is long because is pretty detailed! Most likely, upgrading
+JupyterHub is painless, quick and with minimal user interruption.</p>
+<div class="section" id="read-the-changelog">
+<h2>Read the Changelog<a class="headerlink" href="#read-the-changelog" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../changelog.html">changelog</a> contains information on what has
+changed with the new JupyterHub release, and any deprecation warnings.
+Read these notes to familiarize yourself with the coming changes. There
+might be new releases of authenticators &amp; spawners you are using, so
+read the changelogs for those too!</p>
+</div>
+<div class="section" id="notify-your-users">
+<h2>Notify your users<a class="headerlink" href="#notify-your-users" title="Permalink to this headline">¶</a></h2>
+<p>If you are using the default configuration where <code class="docutils literal notranslate"><span class="pre">configurable-http-proxy</span></code>
+is managed by JupyterHub, your users will see service disruption during
+the upgrade process. You should notify them, and pick a time to do the
+upgrade where they will be least disrupted.</p>
+<p>If you are using a different proxy, or running <code class="docutils literal notranslate"><span class="pre">configurable-http-proxy</span></code>
+independent of JupyterHub, your users will be able to continue using notebook
+servers they had already launched, but will not be able to launch new servers
+nor sign in.</p>
+</div>
+<div class="section" id="backup-database-config">
+<h2>Backup database &amp; config<a class="headerlink" href="#backup-database-config" title="Permalink to this headline">¶</a></h2>
+<p>Before doing an upgrade, it is critical to back up:</p>
+<ol class="arabic simple">
+<li><p>Your JupyterHub database (sqlite by default, or MySQL / Postgres
+if you used those). If you are using sqlite (the default), you
+should backup the <code class="docutils literal notranslate"><span class="pre">jupyterhub.sqlite</span></code> file.</p></li>
+<li><p>Your <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> file.</p></li>
+<li><p>Your user’s home directories. This is unlikely to be affected directly by
+a JupyterHub upgrade, but we recommend a backup since user data is very
+critical.</p></li>
+</ol>
+</div>
+<div class="section" id="shutdown-jupyterhub">
+<h2>Shutdown JupyterHub<a class="headerlink" href="#shutdown-jupyterhub" title="Permalink to this headline">¶</a></h2>
+<p>Shutdown the JupyterHub process. This would vary depending on how you
+have set up JupyterHub to run. Most likely, it is using a process
+supervisor of some sort (<code class="docutils literal notranslate"><span class="pre">systemd</span></code> or <code class="docutils literal notranslate"><span class="pre">supervisord</span></code> or even <code class="docutils literal notranslate"><span class="pre">docker</span></code>).
+Use the supervisor specific command to stop the JupyterHub process.</p>
+</div>
+<div class="section" id="upgrade-jupyterhub-packages">
+<h2>Upgrade JupyterHub packages<a class="headerlink" href="#upgrade-jupyterhub-packages" title="Permalink to this headline">¶</a></h2>
+<p>There are two environments where the <code class="docutils literal notranslate"><span class="pre">jupyterhub</span></code> package is installed:</p>
+<ol class="arabic simple">
+<li><p>The <em>hub environment</em>, which is where the JupyterHub server process
+runs. This is started with the <code class="docutils literal notranslate"><span class="pre">jupyterhub</span></code> command, and is what
+people generally think of as JupyterHub.</p></li>
+<li><p>The <em>notebook user environments</em>. This is where the user notebook
+servers are launched from, and is probably custom to your own
+installation. This could be just one environment (different from the
+hub environment) that is shared by all users, one environment
+per user, or same environment as the hub environment. The hub
+launched the <code class="docutils literal notranslate"><span class="pre">jupyterhub-singleuser</span></code> command in this environment,
+which in turn starts the notebook server.</p></li>
+</ol>
+<p>You need to make sure the version of the <code class="docutils literal notranslate"><span class="pre">jupyterhub</span></code> package matches
+in both these environments. If you installed <code class="docutils literal notranslate"><span class="pre">jupyterhub</span></code> with pip,
+you can upgrade it with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade <span class="nv">jupyterhub</span><span class="o">==</span>&lt;version&gt;
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code> is the version of JupyterHub you are upgrading to.</p>
+<p>If you used <code class="docutils literal notranslate"><span class="pre">conda</span></code> to install <code class="docutils literal notranslate"><span class="pre">jupyterhub</span></code>, you should upgrade it
+with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge <span class="nv">jupyterhub</span><span class="o">==</span>&lt;version&gt;
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code> is the version of JupyterHub you are upgrading to.</p>
+<p>You should also check for new releases of the authenticator &amp; spawner you
+are using. You might wish to upgrade those packages too along with JupyterHub,
+or upgrade them separately.</p>
+</div>
+<div class="section" id="upgrade-jupyterhub-database">
+<h2>Upgrade JupyterHub database<a class="headerlink" href="#upgrade-jupyterhub-database" title="Permalink to this headline">¶</a></h2>
+<p>Once new packages are installed, you need to upgrade the JupyterHub
+database. From the hub environment, in the same directory as your
+<code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> file, you should run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyterhub upgrade-db
+</pre></div>
+</div>
+<p>This should find the location of your database, and run necessary upgrades
+for it.</p>
+<div class="section" id="sqlite-database-disadvantages">
+<h3>SQLite database disadvantages<a class="headerlink" href="#sqlite-database-disadvantages" title="Permalink to this headline">¶</a></h3>
+<p>SQLite has some disadvantages when it comes to upgrading JupyterHub. These
+are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">upgrade-db</span></code> may not work, and you may need delete your database
+and start with a fresh one.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">downgrade-db</span></code> <strong>will not</strong> work if you want to rollback to an
+earlier version, so backup the <code class="docutils literal notranslate"><span class="pre">jupyterhub.sqlite</span></code> file before
+upgrading</p></li>
+</ul>
+</div>
+<div class="section" id="what-happens-if-i-delete-my-database">
+<h3>What happens if I delete my database?<a class="headerlink" href="#what-happens-if-i-delete-my-database" title="Permalink to this headline">¶</a></h3>
+<p>Losing the Hub database is often not a big deal. Information that
+resides only in the Hub database includes:</p>
+<ul class="simple">
+<li><p>active login tokens (user cookies, service tokens)</p></li>
+<li><p>users added via JupyterHub UI, instead of config files</p></li>
+<li><p>info about running servers</p></li>
+</ul>
+<p>If the following conditions are true, you should be fine clearing the
+Hub database and starting over:</p>
+<ul class="simple">
+<li><p>users specified in config file, or login using an external
+authentication provider (Google, GitHub, LDAP, etc)</p></li>
+<li><p>user servers are stopped during upgrade</p></li>
+<li><p>don’t mind causing users to login again after upgrade</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="start-jupyterhub">
+<h2>Start JupyterHub<a class="headerlink" href="#start-jupyterhub" title="Permalink to this headline">¶</a></h2>
+<p>Once the database upgrade is completed, start the <code class="docutils literal notranslate"><span class="pre">jupyterhub</span></code>
+process again.</p>
+<ol class="arabic simple">
+<li><p>Log-in and start the server to make sure things work as
+expected.</p></li>
+<li><p>Check the logs for any errors or deprecation warnings. You
+might have to update your <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> file to
+deal with any deprecated options.</p></li>
+</ol>
+<p>Congratulations, your JupyterHub has been upgraded!</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../troubleshooting.html" title="previous page">Troubleshooting</a>
+    <a class='right-next' id="next-link" href="../changelog.html" title="next page">Changelog</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

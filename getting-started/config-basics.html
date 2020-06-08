@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Configuration Basics &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Networking basics" href="networking-basics.html" />
+    <link rel="prev" title="Get Started" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="active">
+                  <a href="">Configuration Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="networking-basics.html">Networking basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security-basics.html">Security settings</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators-users-basics.html">Authentication and User Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners-basics.html">Spawners and single-user notebook servers</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services-basics.html">External services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="faq.html">Frequently asked questions</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="institutional-faq.html">Institutional FAQ</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#generate-a-default-config-file" class="nav-link">Generate a default config file</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#start-with-a-specific-config-file" class="nav-link">Start with a specific config file</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#configure-using-command-line-options" class="nav-link">Configure using command line options</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#configure-for-various-deployment-environments" class="nav-link">Configure for various deployment environments</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#run-the-proxy-separately" class="nav-link">Run the proxy separately</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="configuration-basics">
+<h1>Configuration Basics<a class="headerlink" href="#configuration-basics" title="Permalink to this headline">¶</a></h1>
+<p>The section contains basic information about configuring settings for a JupyterHub
+deployment. The <a class="reference internal" href="../reference/index.html"><span class="doc">Technical Reference</span></a>
+documentation provides additional details.</p>
+<p>This section will help you learn how to:</p>
+<ul class="simple">
+<li><p>generate a default configuration file, <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code></p></li>
+<li><p>start with a specific configuration file</p></li>
+<li><p>configure JupyterHub using command line options</p></li>
+<li><p>find information and examples for some common deployments</p></li>
+</ul>
+<div class="section" id="generate-a-default-config-file">
+<h2>Generate a default config file<a class="headerlink" href="#generate-a-default-config-file" title="Permalink to this headline">¶</a></h2>
+<p>On startup, JupyterHub will look by default for a configuration file,
+<code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code>, in the current working directory.</p>
+<p>To generate a default config file, <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyterhub --generate-config
+</pre></div>
+</div>
+<p>This default <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> file contains comments and guidance for all
+configuration variables and their default values. We recommend storing
+configuration files in the standard UNIX filesystem location, i.e.
+<code class="docutils literal notranslate"><span class="pre">/etc/jupyterhub</span></code>.</p>
+</div>
+<div class="section" id="start-with-a-specific-config-file">
+<h2>Start with a specific config file<a class="headerlink" href="#start-with-a-specific-config-file" title="Permalink to this headline">¶</a></h2>
+<p>You can load a specific config file and start JupyterHub using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyterhub -f /path/to/jupyterhub_config.py
+</pre></div>
+</div>
+<p>If you have stored your configuration file in the recommended UNIX filesystem
+location, <code class="docutils literal notranslate"><span class="pre">/etc/jupyterhub</span></code>, the following command will start JupyterHub using
+the configuration file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyterhub -f /etc/jupyterhub/jupyterhub_config.py
+</pre></div>
+</div>
+<p>The IPython documentation provides additional information on the
+<a class="reference external" href="http://ipython.readthedocs.io/en/stable/development/config">config system</a>
+that Jupyter uses.</p>
+</div>
+<div class="section" id="configure-using-command-line-options">
+<h2>Configure using command line options<a class="headerlink" href="#configure-using-command-line-options" title="Permalink to this headline">¶</a></h2>
+<p>To display all command line options that are available for configuration:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    jupyterhub --help-all
+</pre></div>
+</div>
+<p>Configuration using the command line options is done when launching JupyterHub.
+For example, to start JupyterHub on <code class="docutils literal notranslate"><span class="pre">10.0.1.2:443</span></code> with https, you
+would enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    jupyterhub --ip <span class="m">10</span>.0.1.2 --port <span class="m">443</span> --ssl-key my_ssl.key --ssl-cert my_ssl.cert
+</pre></div>
+</div>
+<p>All configurable options may technically be set on the command-line,
+though some are inconvenient to type. To set a particular configuration
+parameter, <code class="docutils literal notranslate"><span class="pre">c.Class.trait</span></code>, you would use the command line option,
+<code class="docutils literal notranslate"><span class="pre">--Class.trait</span></code>, when starting JupyterHub. For example, to configure the
+<code class="docutils literal notranslate"><span class="pre">c.Spawner.notebook_dir</span></code> trait from the command-line, use the
+<code class="docutils literal notranslate"><span class="pre">--Spawner.notebook_dir</span></code> option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyterhub --Spawner.notebook_dir<span class="o">=</span><span class="s1">&#39;~/assignments&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-for-various-deployment-environments">
+<h2>Configure for various deployment environments<a class="headerlink" href="#configure-for-various-deployment-environments" title="Permalink to this headline">¶</a></h2>
+<p>The default authentication and process spawning mechanisms can be replaced, and
+specific <a class="reference internal" href="authenticators-users-basics.html"><span class="doc">authenticators</span></a> and
+<a class="reference internal" href="spawners-basics.html"><span class="doc">spawners</span></a> can be set in the configuration file.
+This enables JupyterHub to be used with a variety of authentication methods or
+process control and deployment environments. <a class="reference internal" href="../reference/config-examples.html"><span class="doc">Some examples</span></a>,
+meant as illustration, are:</p>
+<ul class="simple">
+<li><p>Using GitHub OAuth instead of PAM with <a class="reference external" href="https://github.com/jupyterhub/oauthenticator">OAuthenticator</a></p></li>
+<li><p>Spawning single-user servers with Docker, using the <a class="reference external" href="https://github.com/jupyterhub/dockerspawner">DockerSpawner</a></p></li>
+</ul>
+</div>
+<div class="section" id="run-the-proxy-separately">
+<h2>Run the proxy separately<a class="headerlink" href="#run-the-proxy-separately" title="Permalink to this headline">¶</a></h2>
+<p>This is <em>not</em> strictly necessary, but useful in many cases.  If you
+use a custom proxy (e.g. Traefik), this also not needed.</p>
+<p>Connections to user servers go through the proxy, and <em>not</em> the hub
+itself.  If the proxy stays running when the hub restarts (for
+maintenance, re-configuration, etc.), then use connections are not
+interrupted.  For simplicity, by default the hub starts the proxy
+automatically, so if the hub restarts, the proxy restarts, and user
+connections are interrupted.  It is easy to run the proxy separately,
+for information see <a class="reference internal" href="../reference/separate-proxy.html"><span class="doc">the separate proxy page</span></a>.</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Get Started</a>
+    <a class='right-next' id="next-link" href="networking-basics.html" title="next page">Networking basics</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

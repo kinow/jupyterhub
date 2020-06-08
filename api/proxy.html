@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Proxies &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Users" href="user.html" />
+    <link rel="prev" title="Spawners" href="spawner.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../getting-started/index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="app.html">Application configuration</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="auth.html">Authenticators</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawner.html">Spawners</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Proxies</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="user.html">Users</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="service.html">Services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services.auth.html">Services Authentication</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-jupyterhub.proxy" class="nav-link">Module: jupyterhub.proxy</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#proxy" class="nav-link">Proxy</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#configurablehttpproxy" class="nav-link">ConfigurableHTTPProxy</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="proxies">
+<h1>Proxies<a class="headerlink" href="#proxies" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-jupyterhub.proxy">
+<span id="module-jupyterhub-proxy"></span><h2>Module: <a class="reference internal" href="#module-jupyterhub.proxy" title="jupyterhub.proxy"><code class="xref py py-mod docutils literal notranslate"><span class="pre">jupyterhub.proxy</span></code></a><a class="headerlink" href="#module-jupyterhub.proxy" title="Permalink to this headline">¶</a></h2>
+<p>API for JupyterHub’s proxy.</p>
+<p>Custom proxy implementations can subclass <a class="reference internal" href="#jupyterhub.proxy.Proxy" title="jupyterhub.proxy.Proxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Proxy</span></code></a>
+and register in JupyterHub config:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mymodule</span> <span class="kn">import</span> <span class="n">MyProxy</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">proxy_class</span> <span class="o">=</span> <span class="n">MyProxy</span>
+</pre></div>
+</div>
+<p>Route Specification:</p>
+<ul class="simple">
+<li><p>A routespec is a URL prefix ([host]/path/), e.g.
+‘host.tld/path/’ for host-based routing or ‘/path/’ for default routing.</p></li>
+<li><p>Route paths should be normalized to always start and end with ‘/’</p></li>
+</ul>
+<div class="section" id="proxy">
+<h3><a class="reference internal" href="#jupyterhub.proxy.Proxy" title="jupyterhub.proxy.Proxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Proxy</span></code></a><a class="headerlink" href="#proxy" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="jupyterhub.proxy.Proxy">
+<em class="property">class </em><code class="sig-prename descclassname">jupyterhub.proxy.</code><code class="sig-name descname">Proxy</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for configurable proxies that JupyterHub can use.</p>
+<p>A proxy implementation should subclass this and must define the following methods:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#jupyterhub.proxy.Proxy.get_all_routes" title="jupyterhub.proxy.Proxy.get_all_routes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_all_routes()</span></code></a> return a dictionary of all JupyterHub-related routes</p></li>
+<li><p><a class="reference internal" href="#jupyterhub.proxy.Proxy.add_route" title="jupyterhub.proxy.Proxy.add_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_route()</span></code></a> adds a route</p></li>
+<li><p><a class="reference internal" href="#jupyterhub.proxy.Proxy.delete_route" title="jupyterhub.proxy.Proxy.delete_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">delete_route()</span></code></a> deletes a route</p></li>
+</ul>
+<p>In addition to these, the following method(s) may need to be implemented:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#jupyterhub.proxy.Proxy.start" title="jupyterhub.proxy.Proxy.start"><code class="xref py py-meth docutils literal notranslate"><span class="pre">start()</span></code></a> start the proxy, if it should be launched by the Hub
+instead of externally managed.
+If the proxy is externally managed, it should set <a class="reference internal" href="#jupyterhub.proxy.Proxy.should_start" title="jupyterhub.proxy.Proxy.should_start"><code class="xref py py-attr docutils literal notranslate"><span class="pre">should_start</span></code></a> to False.</p></li>
+<li><p><a class="reference internal" href="#jupyterhub.proxy.Proxy.stop" title="jupyterhub.proxy.Proxy.stop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stop()</span></code></a> stop the proxy. Only used if <a class="reference internal" href="#jupyterhub.proxy.Proxy.start" title="jupyterhub.proxy.Proxy.start"><code class="xref py py-meth docutils literal notranslate"><span class="pre">start()</span></code></a> is also used.</p></li>
+</ul>
+<p>And the following method(s) are optional, but can be provided:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#jupyterhub.proxy.Proxy.get_route" title="jupyterhub.proxy.Proxy.get_route"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_route()</span></code></a> gets a single route.
+There is a default implementation that extracts data from <a class="reference internal" href="#jupyterhub.proxy.Proxy.get_all_routes" title="jupyterhub.proxy.Proxy.get_all_routes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_all_routes()</span></code></a>,
+but implementations may choose to provide a more efficient implementation
+of fetching a single route.</p></li>
+</ul>
+<dl class="py attribute">
+<dt id="jupyterhub.proxy.Proxy.should_start">
+<code class="sig-name descname">should_start</code><em class="property"> c.Proxy.should_start = Bool(True)</em><a class="headerlink" href="#jupyterhub.proxy.Proxy.should_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should the Hub start the proxy</p>
+<p>If True, the Hub will start the proxy and stop it.
+Set to False if the proxy is managed externally,
+such as by systemd, docker, or another service manager.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.add_all_services">
+<em class="property">async </em><code class="sig-name descname">add_all_services</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.add_all_services" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the proxy table from the database.</p>
+<p>Used when loading up a new proxy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.add_all_users">
+<em class="property">async </em><code class="sig-name descname">add_all_users</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.add_all_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the proxy table from the database.</p>
+<p>Used when loading up a new proxy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.add_hub_route">
+<code class="sig-name descname">add_hub_route</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hub</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.add_hub_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the default route for the Hub</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.add_route">
+<em class="property">async </em><code class="sig-name descname">add_route</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">routespec</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.add_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a route to the proxy.</p>
+<p><strong>Subclasses must define this method</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>routespec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A URL prefix ([host]/path/) for which this route will be matched,
+e.g. host.name/path/</p></li>
+<li><p><strong>target</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A full URL that will be the target of this route.</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A JSONable dict that will be associated with this route, and will
+be returned when retrieving information about this route.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Will raise an appropriate Exception (FIXME: find what?) if the route could
+not be added.</p>
+<p>The proxy implementation should also have a way to associate the fact that a
+route came from JupyterHub.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.add_service">
+<em class="property">async </em><code class="sig-name descname">add_service</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span></em>, <em class="sig-param"><span class="n">client</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.add_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a service’s server to the proxy table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.add_user">
+<em class="property">async </em><code class="sig-name descname">add_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">server_name</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">client</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.add_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a user’s server to the proxy table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.check_routes">
+<em class="property">async </em><code class="sig-name descname">check_routes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_dict</span></em>, <em class="sig-param"><span class="n">service_dict</span></em>, <em class="sig-param"><span class="n">routes</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.check_routes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that all users are properly routed on the proxy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.delete_route">
+<em class="property">async </em><code class="sig-name descname">delete_route</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">routespec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.delete_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a route with a given routespec if it exists.</p>
+<p><strong>Subclasses must define this method</strong></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.delete_service">
+<em class="property">async </em><code class="sig-name descname">delete_service</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span></em>, <em class="sig-param"><span class="n">client</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.delete_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a service’s server from the proxy table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.delete_user">
+<em class="property">async </em><code class="sig-name descname">delete_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">server_name</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.delete_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a user’s server from the proxy table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.get_all_routes">
+<em class="property">async </em><code class="sig-name descname">get_all_routes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.get_all_routes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch and return all the routes associated by JupyterHub from the
+proxy.</p>
+<p><strong>Subclasses must define this method</strong></p>
+<p>Should return a dictionary of routes, where the keys are
+routespecs and each value is a dict of the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;routespec&#39;</span><span class="p">:</span> <span class="n">the</span> <span class="n">route</span> <span class="n">specification</span> <span class="p">([</span><span class="n">host</span><span class="p">]</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="p">)</span>
+  <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">the</span> <span class="n">target</span> <span class="n">host</span> <span class="n">URL</span> <span class="p">(</span><span class="n">proto</span><span class="p">:</span><span class="o">//</span><span class="n">host</span><span class="p">)</span> <span class="k">for</span> <span class="n">this</span> <span class="n">route</span>
+  <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">the</span> <span class="n">attached</span> <span class="n">data</span> <span class="nb">dict</span> <span class="k">for</span> <span class="n">this</span> <span class="n">route</span> <span class="p">(</span><span class="k">as</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">add_route</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.get_route">
+<em class="property">async </em><code class="sig-name descname">get_route</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">routespec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.get_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the route info for a given routespec.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>routespec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A URI that was used to add this route,
+e.g. <code class="docutils literal notranslate"><span class="pre">host.tld/path/</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>dict with the following keys:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;routespec&#39;</span><span class="p">:</span> <span class="n">The</span> <span class="n">normalized</span> <span class="n">route</span> <span class="n">specification</span> <span class="n">passed</span> <span class="ow">in</span> <span class="n">to</span> <span class="n">add_route</span>
+    <span class="p">([</span><span class="n">host</span><span class="p">]</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="p">)</span>
+<span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">The</span> <span class="n">target</span> <span class="n">host</span> <span class="k">for</span> <span class="n">this</span> <span class="n">route</span> <span class="p">(</span><span class="n">proto</span><span class="p">:</span><span class="o">//</span><span class="n">host</span><span class="p">)</span>
+<span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">The</span> <span class="n">arbitrary</span> <span class="n">data</span> <span class="nb">dict</span> <span class="n">that</span> <span class="n">was</span> <span class="n">passed</span> <span class="ow">in</span> <span class="n">by</span> <span class="n">JupyterHub</span> <span class="n">when</span> <span class="n">adding</span> <span class="n">this</span>
+        <span class="n">route</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>None: if there are no routes matching the given routespec</p>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>result (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the proxy.</p>
+<p>Will be called during startup if should_start is True.</p>
+<p><strong>Subclasses must define this method</strong>
+if the proxy is to be started by the Hub</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the proxy.</p>
+<p>Will be called during teardown if should_start is True.</p>
+<p><strong>Subclasses must define this method</strong>
+if the proxy is to be started by the Hub</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jupyterhub.proxy.Proxy.validate_routespec">
+<code class="sig-name descname">validate_routespec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">routespec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.Proxy.validate_routespec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate a routespec</p>
+<ul class="simple">
+<li><p>Checks host value vs host-based routing.</p></li>
+<li><p>Ensures trailing slash on path.</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="configurablehttpproxy">
+<h3><a class="reference internal" href="#jupyterhub.proxy.ConfigurableHTTPProxy" title="jupyterhub.proxy.ConfigurableHTTPProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfigurableHTTPProxy</span></code></a><a class="headerlink" href="#configurablehttpproxy" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="jupyterhub.proxy.ConfigurableHTTPProxy">
+<em class="property">class </em><code class="sig-prename descclassname">jupyterhub.proxy.</code><code class="sig-name descname">ConfigurableHTTPProxy</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jupyterhub.proxy.ConfigurableHTTPProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Proxy implementation for the default configurable-http-proxy.</p>
+<p>This is the default proxy implementation
+for running the nodejs proxy <code class="docutils literal notranslate"><span class="pre">configurable-http-proxy</span></code>.</p>
+<p>If the proxy should not be run as a subprocess of the Hub,
+(e.g. in a separate container),
+set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">ConfigurableHTTPProxy</span><span class="o">.</span><span class="n">should_start</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt id="jupyterhub.proxy.ConfigurableHTTPProxy.api_url">
+<code class="sig-name descname">api_url</code><em class="property"> c.ConfigurableHTTPProxy.api_url = Unicode('')</em><a class="headerlink" href="#jupyterhub.proxy.ConfigurableHTTPProxy.api_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ip (or hostname) of the proxy’s API endpoint</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jupyterhub.proxy.ConfigurableHTTPProxy.auth_token">
+<code class="sig-name descname">auth_token</code><em class="property"> c.ConfigurableHTTPProxy.auth_token = Unicode('')</em><a class="headerlink" href="#jupyterhub.proxy.ConfigurableHTTPProxy.auth_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Proxy auth token</p>
+<p>Loaded from the CONFIGPROXY_AUTH_TOKEN env variable by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jupyterhub.proxy.ConfigurableHTTPProxy.command">
+<code class="sig-name descname">command</code><em class="property"> c.ConfigurableHTTPProxy.command = Command()</em><a class="headerlink" href="#jupyterhub.proxy.ConfigurableHTTPProxy.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>The command to start the proxy</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jupyterhub.proxy.ConfigurableHTTPProxy.concurrency">
+<code class="sig-name descname">concurrency</code><em class="property"> c.ConfigurableHTTPProxy.concurrency = Int(10)</em><a class="headerlink" href="#jupyterhub.proxy.ConfigurableHTTPProxy.concurrency" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of requests allowed to be concurrently outstanding to the proxy</p>
+<p>Limiting this number avoids potential timeout errors
+by sending too many requests to update the proxy at once</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jupyterhub.proxy.ConfigurableHTTPProxy.debug">
+<code class="sig-name descname">debug</code><em class="property"> c.ConfigurableHTTPProxy.debug = Bool(False)</em><a class="headerlink" href="#jupyterhub.proxy.ConfigurableHTTPProxy.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add debug-level logging to the Proxy.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jupyterhub.proxy.ConfigurableHTTPProxy.pid_file">
+<code class="sig-name descname">pid_file</code><em class="property"> c.ConfigurableHTTPProxy.pid_file = Unicode('jupyterhub-proxy.pid')</em><a class="headerlink" href="#jupyterhub.proxy.ConfigurableHTTPProxy.pid_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>File in which to write the PID of the proxy process.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jupyterhub.proxy.ConfigurableHTTPProxy.should_start">
+<code class="sig-name descname">should_start</code><em class="property"> c.ConfigurableHTTPProxy.should_start = Bool(True)</em><a class="headerlink" href="#jupyterhub.proxy.ConfigurableHTTPProxy.should_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should the Hub start the proxy</p>
+<p>If True, the Hub will start the proxy and stop it.
+Set to False if the proxy is managed externally,
+such as by systemd, docker, or another service manager.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="spawner.html" title="previous page">Spawners</a>
+    <a class='right-next' id="next-link" href="user.html" title="next page">Users</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

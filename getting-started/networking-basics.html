@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Networking basics &#8212; JupyterHub 1.2.0dev documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Security settings" href="security-basics.html" />
+    <link rel="prev" title="Configuration Basics" href="config-basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../installation-guide.html">Installation</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Get Started</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">Technical Reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-admin.html">Administrator’s Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../api/index.html">JupyterHub API</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../contributing/index.html">Contributing</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../index-about.html">About</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+        
+          
+              <li class="">
+                  <a href="config-basics.html">Configuration Basics</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Networking basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="security-basics.html">Security settings</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="authenticators-users-basics.html">Authentication and User Basics</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="spawners-basics.html">Spawners and single-user notebook servers</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="services-basics.html">External services</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="faq.html">Frequently asked questions</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="institutional-faq.html">Institutional FAQ</a>
+              </li>
+          
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#set-the-proxy-s-ip-address-and-port" class="nav-link">Set the Proxy’s IP address and port</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#set-the-proxy-s-rest-api-communication-url-optional" class="nav-link">Set the Proxy’s REST API communication URL (optional)</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#set-api-url" class="nav-link">Set api_url</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#proxy-api-ip-and-proxy-api-port-deprecated-in-0-8" class="nav-link">proxy_api_ip and proxy_api_port (Deprecated in 0.8)</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#configure-the-hub-if-the-proxy-or-spawners-are-remote-or-isolated" class="nav-link">Configure the Hub if the Proxy or Spawners are remote or isolated</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#adjusting-the-hub-s-url" class="nav-link">Adjusting the hub’s URL</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="networking-basics">
+<h1>Networking basics<a class="headerlink" href="#networking-basics" title="Permalink to this headline">¶</a></h1>
+<p>This section will help you with basic proxy and network configuration to:</p>
+<ul class="simple">
+<li><p>set the proxy’s IP address and port</p></li>
+<li><p>set the proxy’s REST API URL</p></li>
+<li><p>configure the Hub if the Proxy or Spawners are remote or isolated</p></li>
+<li><p>set the <code class="docutils literal notranslate"><span class="pre">hub_connect_ip</span></code> which services will use to communicate with the hub</p></li>
+</ul>
+<div class="section" id="set-the-proxy-s-ip-address-and-port">
+<h2>Set the Proxy’s IP address and port<a class="headerlink" href="#set-the-proxy-s-ip-address-and-port" title="Permalink to this headline">¶</a></h2>
+<p>The Proxy’s main IP address setting determines where JupyterHub is available to users.
+By default, JupyterHub is configured to be available on all network interfaces
+(<code class="docutils literal notranslate"><span class="pre">''</span></code>) on port 8000. <em>Note</em>: Use of <code class="docutils literal notranslate"><span class="pre">'*'</span></code> is discouraged for IP configuration;
+instead, use of <code class="docutils literal notranslate"><span class="pre">'0.0.0.0'</span></code> is preferred.</p>
+<p>Changing the Proxy’s main IP address and port can be done with the following
+JupyterHub <strong>command line options</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyterhub --ip<span class="o">=</span><span class="m">192</span>.168.1.2 --port<span class="o">=</span><span class="m">443</span>
+</pre></div>
+</div>
+<p>Or by placing the following lines in a <strong>configuration file</strong>,
+<code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">ip</span> <span class="o">=</span> <span class="s1">&#39;192.168.1.2&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">443</span>
+</pre></div>
+</div>
+<p>Port 443 is used in the examples since 443 is the default port for SSL/HTTPS.</p>
+<p>Configuring only the main IP and port of JupyterHub should be sufficient for
+most deployments of JupyterHub. However, more customized scenarios may need
+additional networking details to be configured.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">c.JupyterHub.ip</span></code> and <code class="docutils literal notranslate"><span class="pre">c.JupyterHub.port</span></code> are single values,
+not tuples or lists – JupyterHub listens to only a single IP address and
+port.</p>
+</div>
+<div class="section" id="set-the-proxy-s-rest-api-communication-url-optional">
+<h2>Set the Proxy’s REST API communication URL (optional)<a class="headerlink" href="#set-the-proxy-s-rest-api-communication-url-optional" title="Permalink to this headline">¶</a></h2>
+<p>By default, this REST API listens on port 8001 of <code class="docutils literal notranslate"><span class="pre">localhost</span></code> only.
+The Hub service talks to the proxy via a REST API on a secondary port. The
+API URL can be configured separately and override the default settings.</p>
+<div class="section" id="set-api-url">
+<h3>Set api_url<a class="headerlink" href="#set-api-url" title="Permalink to this headline">¶</a></h3>
+<p>The URL to access the API, <code class="docutils literal notranslate"><span class="pre">c.configurableHTTPProxy.api_url</span></code>, is configurable.
+An example entry to set the proxy’s API URL in <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">ConfigurableHTTPProxy</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="s1">&#39;http://10.0.1.4:5432&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="proxy-api-ip-and-proxy-api-port-deprecated-in-0-8">
+<h3>proxy_api_ip and proxy_api_port (Deprecated in 0.8)<a class="headerlink" href="#proxy-api-ip-and-proxy-api-port-deprecated-in-0-8" title="Permalink to this headline">¶</a></h3>
+<p>If running the Proxy separate from the Hub, configure the REST API communication
+IP address and port by adding this to the <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ideally a private network address</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">proxy_api_ip</span> <span class="o">=</span> <span class="s1">&#39;10.0.1.4&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">proxy_api_port</span> <span class="o">=</span> <span class="mi">5432</span>
+</pre></div>
+</div>
+<p>We recommend using the proxy’s <code class="docutils literal notranslate"><span class="pre">api_url</span></code> setting instead of the deprecated
+settings, <code class="docutils literal notranslate"><span class="pre">proxy_api_ip</span></code> and <code class="docutils literal notranslate"><span class="pre">proxy_api_port</span></code>.</p>
+</div>
+</div>
+<div class="section" id="configure-the-hub-if-the-proxy-or-spawners-are-remote-or-isolated">
+<h2>Configure the Hub if the Proxy or Spawners are remote or isolated<a class="headerlink" href="#configure-the-hub-if-the-proxy-or-spawners-are-remote-or-isolated" title="Permalink to this headline">¶</a></h2>
+<p>The Hub service listens only on <code class="docutils literal notranslate"><span class="pre">localhost</span></code> (port 8081) by default.
+The Hub needs to be accessible from both the proxy and all Spawners.
+When spawning local servers, an IP address setting of <code class="docutils literal notranslate"><span class="pre">localhost</span></code> is fine.</p>
+<p>If <em>either</em> the Proxy <em>or</em> (more likely) the Spawners will be remote or
+isolated in containers, the Hub must listen on an IP that is accessible.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">hub_ip</span> <span class="o">=</span> <span class="s1">&#39;10.0.1.4&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">hub_port</span> <span class="o">=</span> <span class="mi">54321</span>
+</pre></div>
+</div>
+<p><strong>Added in 0.8:</strong> The <code class="docutils literal notranslate"><span class="pre">c.JupyterHub.hub_connect_ip</span></code> setting is the ip address or
+hostname that other services should use to connect to the Hub. A common
+configuration for, e.g. docker, is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">hub_ip</span> <span class="o">=</span> <span class="s1">&#39;0.0.0.0&#39;</span>  <span class="c1"># listen on all interfaces</span>
+<span class="n">c</span><span class="o">.</span><span class="n">JupyterHub</span><span class="o">.</span><span class="n">hub_connect_ip</span> <span class="o">=</span> <span class="s1">&#39;10.0.1.4&#39;</span>  <span class="c1"># ip as seen on the docker network. Can also be a hostname.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adjusting-the-hub-s-url">
+<h2>Adjusting the hub’s URL<a class="headerlink" href="#adjusting-the-hub-s-url" title="Permalink to this headline">¶</a></h2>
+<p>The hub will most commonly be running on a hostname of its own.  If it
+is not – for example, if the hub is being reverse-proxied and being
+exposed at a URL such as <code class="docutils literal notranslate"><span class="pre">https://proxy.example.org/jupyter/</span></code> – then
+you will need to tell JupyterHub the base URL of the service.  In such
+a case, it is both necessary and sufficient to set
+<code class="docutils literal notranslate"><span class="pre">c.JupyterHub.base_url</span> <span class="pre">=</span> <span class="pre">'/jupyter/'</span></code> in the configuration.</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="config-basics.html" title="previous page">Configuration Basics</a>
+    <a class='right-next' id="next-link" href="security-basics.html" title="next page">Security settings</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016, Project Jupyter team.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
